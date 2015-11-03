@@ -4,7 +4,8 @@
   "description": "Yet another react component to render markdown.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:demo": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -31,5 +32,12 @@
     "prismjs-package": "^0.2.0",
     "react": "^0.14.2",
     "twemoji": "^1.4.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.20",
+    "babel-loader": "^6.0.1",
+    "babel-preset-react": "^6.0.15",
+    "react-dom": "^0.14.2",
+    "webpack": "^1.12.2"
   }
 }

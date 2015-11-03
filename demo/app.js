@@ -1,5 +1,5 @@
 import {Component} from "react";
-import Markdown from "../index";
+import Markdown from "main";
 
 export default class App extends Component {
 	render() {

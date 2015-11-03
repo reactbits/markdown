@@ -2,7 +2,7 @@
   "name": "react-markdown2",
   "version": "0.0.1",
   "description": "Yet another react component to render markdown.",
-  "main": "index.js",
+  "main": "./src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:demo": "webpack --config webpack.config.js"

@@ -3,12 +3,19 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'source-map',
-  entry: './demo/index',
+  entry: [
+    'webpack-hot-middleware/client',
+    './demo/index'
+  ],
   output: {
     path: path.join(__dirname, 'demo'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/demo/'
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
   module: {
     loaders: [
     {

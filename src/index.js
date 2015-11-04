@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import render from "./render";
 import stripIndent from "strip-indent";
+import {linkTo} from "./linkify";
 
 function renderContent(src) {
 	// TODO make image and video URLs as markdown-it plugin
@@ -40,7 +41,7 @@ export default class Markdown extends Component {
 	}
 };
 
-export {render};
+export {render, linkTo};
 
 var urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/i;
 var imagePattern = /\.(png|jpg|gif)$/i;

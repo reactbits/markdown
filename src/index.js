@@ -24,6 +24,8 @@ function renderContent(src) {
 export default class Markdown extends Component {
 	render() {
 		var src = this.props.source;
+		var className = this.props.className || "markdown";
+		var style = this.props.style || {};
 		var content;
 		if (src) {
 			content = renderContent(src);
@@ -32,7 +34,9 @@ export default class Markdown extends Component {
 				return typeof child === "string" ? renderContent(child) : child;
 			});
 		}
-		return <div className="markdown">{content}</div>;
+		return (
+			<div className={className} style={style}>{content}</div>
+		);
 	}
 };
 

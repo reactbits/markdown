@@ -60,12 +60,8 @@ _.pairs(aliases).forEach(function(p) {
   }
 });
 
-function grammar(lang) {
-  return Prism.languages[lang];
-}
-
 function highlight(code, lang) {
-  var g = grammar(lang);
+  var g = Prism.languages[lang];
   if (g) {
     return Prism.highlight(code, g, lang);
   }

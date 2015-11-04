@@ -10,7 +10,12 @@ module.exports = {
     publicPath: '/'
   },
   module: {
-    loaders: [{
+    loaders: [
+    {
+      test: /\.json$/,
+      loader: 'json'
+    },
+    {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'babel'

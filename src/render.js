@@ -1,12 +1,12 @@
-var markdownit require("markdown-it");
-var emoji require("markdown-it-emoji");
-var deflist = require("markdown-it-deflist");
-var mdsup = require("markdown-it-sup");
-var mdsub = require("markdown-it-sub");
-var footnotes = require("markdown-it-footnote");
-var twemoji = require("twemoji");
-var Prism = require("prismjs-package");
-var _ = require("lodash");
+import markdownit from "markdown-it";
+import emoji from "markdown-it-emoji";
+import deflist from "markdown-it-deflist";
+import mdsup from "markdown-it-sup";
+import mdsub from "markdown-it-sub";
+import footnotes from "markdown-it-footnote";
+import twemoji from "twemoji";
+import Prism from "prismjs-package";
+import _ from "lodash";
 
 var md = markdownit({
   html: true,
@@ -150,6 +150,6 @@ function itemlink(md) {
 }
 
 // Renders given markdown text to HTML.
-module.exports = function render(text) {
+export default function render(text) {
   return md.render(text || "");
 }

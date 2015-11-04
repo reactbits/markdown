@@ -44,3 +44,7 @@ class Example extends Component {
 * [x] Use prismjs for syntax highlighting
 * [ ] Render HTML content if content-type is not markdown
 * [ ] Allow to extend markdown rendering with markdown-it plugins
+
+## Licence
+
+MIT. See LICENSE.

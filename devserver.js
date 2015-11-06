@@ -1,3 +1,5 @@
+process.env.UV_THREADPOOL_SIZE = 100;
+
 var path = require('path');
 var express = require('express');
 var webpack = require('webpack');
@@ -15,11 +17,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.listen(port, 'localhost', function(err) {
+app.listen(port, '0.0.0.0', function(err) {
   if (err) {
     console.log(err);
     return;
   }
 
-  console.log('Listening at http://localhost:%s', port);
+  console.log('Listening at http://0.0.0.0:%s', port);
 });

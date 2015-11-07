@@ -1,84 +1,45 @@
-import React, {Component} from "react";
-import render from "./render";
-import stripIndent from "strip-indent";
-import {linkTo} from "./linkify";
+import React, {Component} from 'react';
+import render from './render';
+import stripIndent from 'strip-indent';
+import {linkTo} from './linkify';
+import {isImageURL, isVideoURL, completeVideoURL} from './util';
 
-function renderContent(src) {
+function renderContent(source) {
 	// TODO make image and video URLs as markdown-it plugin
-	if (isImageURL(src)) {
-		return <img src={src}/>;
+	if (isImageURL(source)) {
+		return <img src={source}/>;
 	}
 
-	if (isVideoURL(src)) {
-		src = completeVideoURL(src);
+	if (isVideoURL(source)) {
+		const src = completeVideoURL(source);
 		return (
 			<div className="embed-container">
-				<iframe src={src} frameborder={"0"} allowfullscreen/>
+				<iframe src={src} frameBorder={0} allowFullScreen/>
 			</div>
 		);
 	}
 
-  var html = render(stripIndent(src));
-  return <span dangerouslySetInnerHTML={{__html:html}}/>;
+	const html = render(stripIndent(source));
+	return <span dangerouslySetInnerHTML={{__html: html}}/>;
 }
 
 export default class Markdown extends Component {
 	render() {
-		var src = this.props.source;
-		var className = this.props.className || "markdown";
-		var style = this.props.style || {};
-		var content;
+		const src = this.props.source;
+		const className = this.props.className || 'markdown';
+		const style = this.props.style || {};
+		let content;
 		if (src) {
 			content = renderContent(src);
 		} else {
 			content = React.Children.map(this.props.children, child => {
-				return typeof child === "string" ? renderContent(child) : child;
+				return typeof child === 'string' ? renderContent(child) : child;
 			});
 		}
 		return (
 			<div className={className} style={style}>{content}</div>
 		);
 	}
-};
+}
 
 export {render, linkTo};
-
-var urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/i;
-var imagePattern = /\.(png|jpg|gif)$/i;
-var videoPattern = /(youtube.com)|(vimeo.com)|(vine.co)|(dailymotion.com)/i;
-
-function str(s) {
-	return s ? s + "" : "";
-}
-
-function isURL(s) {
-	return str(s).match(urlPattern);
-}
-
-function isImageURL(s) {
-	return isURL(s) && str(s).match(imagePattern);
-}
-
-function isVideoURL(s) {
-	return isURL(s) && str(s).match(videoPattern);
-}
-
-// automatically adjusts short video URLS, i.e. http://vimeo.com/66140585 -> http://player.vimeo.com/video/66140585
-function completeVideoURL(s) {
-	var vimeo = /https?:\/\/vimeo.com\/(\d+)/i
-	var m = vimeo.exec(s)
-	if (m) {
-		return "http://player.vimeo.com/video/" + m[1]
-	}
-	var vine = /https:\/\/vine.co\/v\/([\w\d]+)/i
-	m = vine.exec(s)
-	if (m) {
-		return "https://vine.co/v/" + m[1] + "/embed/simple";
-	}
-	var dailymotion = /http:\/\/dailymotion.com\/video\/([\w\d]+)/i;
-	m = dailymotion.exec(s);
-	if (m) {
-		return "http://www.dailymotion.com/embed/video/" + m[1];
-	}
-	return s;
-}

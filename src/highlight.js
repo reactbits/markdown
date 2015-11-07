@@ -1,30 +1,30 @@
 // syntax highlighting with prism.js
-import Prism from "prismjs-package";
-import _ from "lodash";
+import Prism from 'prismjs-package';
+import _ from 'lodash';
 
 // language aliases
-var aliases = {
-  "javascript": "js",
-  "csharp": "c#",
+const aliases = {
+	javascript: 'js',
+	csharp: 'c#',
 };
 
 _.pairs(aliases).forEach(p => {
-  var lang = Prism.languages[p[0]];
-  if (!lang) return;
-  var alt = p[1];
-  if (_.isString(alt)) {
-    Prism.languages[alt] = lang;
-  } else if (_.isArray(alt)) {
-    alt.forEach(a => {
-      Prism.languages[a] = lang;
-    });
-  }
+	const lang = Prism.languages[p[0]];
+	if (!lang) return;
+	const alt = p[1];
+	if (_.isString(alt)) {
+		Prism.languages[alt] = lang;
+	} else if (_.isArray(alt)) {
+		alt.forEach(a => {
+			Prism.languages[a] = lang;
+		});
+	}
 });
 
 export default function highlight(code, lang) {
-  var g = Prism.languages[lang];
-  if (g) {
-    return Prism.highlight(code, g, lang);
-  }
-  return code;
+	const grammar = Prism.languages[lang];
+	if (grammar) {
+		return Prism.highlight(code, grammar, lang);
+	}
+	return code;
 }

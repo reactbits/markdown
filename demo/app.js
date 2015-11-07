@@ -1,22 +1,22 @@
-import React, {Component} from "react";
-import Markdown from "../src";
+import React, {Component} from 'react';
+import Markdown from '../src';
 
-function code(src, lang = "js") {
-	return "\n```" + lang + "\n" + src + "\n```";
+function code(src, lang = 'js') {
+	return '\n```' + lang + '\n' + src + '\n```';
 }
-
-var sample = code(`function foo() {
-  console.log("hi");
-}`);
 
 export default class App extends Component {
 	render() {
+		const sample = code(`function foo() {
+  console.log("hi");
+}`);
+
 		return (
 			<div>
 				{/* Pass Markdown source to the `source` prop */}
 				<Markdown source="**Markdown rules!**" />
 
-				{/* Or pass it as children */}				
+				{/* Or pass it as children */}
 				<Markdown>
 {`
 ## Header
@@ -47,6 +47,6 @@ see #hashtag
 					{`Test`}
 				</Markdown>
 			</div>
-		)
+		);
 	}
 }

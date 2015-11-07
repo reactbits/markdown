@@ -1,3 +1,5 @@
+[![Build Status](https://drone.io/github.com/reactbits/markdown/status.png)](https://drone.io/github.com/reactbits/markdown/latest)
+
 # markdown
 Yet another react component to render markdown
 

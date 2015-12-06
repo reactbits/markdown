@@ -4,7 +4,7 @@ const linkTo = {
 	hashtag: 'https://twitter.com/hashtag/',
 };
 
-export {linkTo};
+export { linkTo };
 
 export default function configureLinkifier(linkify) {
 	linkify.set({

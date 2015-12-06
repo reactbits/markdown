@@ -35,7 +35,7 @@ const reCodeBlock = /^\<(pre)\>(<code\s+(class="[\w-]+")\s*\>)/;
 
 // TODO this code should in markdown-it
 // patches syntax highlighter to add class to pre tag
-md.renderer.rules.fence = function() {
+md.renderer.rules.fence = function () {
 	const args = [].slice.call(arguments);
 	const result = fence.apply(this, args);
 	return result.replace(reCodeBlock, '<$1 $3>$2');

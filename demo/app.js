@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Markdown from '../src';
 
 function code(src, lang = 'js') {

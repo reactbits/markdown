@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import render from './render';
 import stripIndent from 'strip-indent';
-import {linkTo} from './linkify';
-import {isImageURL, isVideoURL, completeVideoURL} from './util';
+import { linkTo } from './linkify';
+import { isImageURL, isVideoURL, completeVideoURL } from './util';
 
 function renderContent(source) {
 	// TODO make image and video URLs as markdown-it plugin
@@ -20,7 +20,7 @@ function renderContent(source) {
 	}
 
 	const html = render(stripIndent(source));
-	return <span dangerouslySetInnerHTML={{__html: html}}/>;
+	return <span dangerouslySetInnerHTML={{ __html: html }}/>;
 }
 
 export default class Markdown extends Component {
@@ -42,4 +42,4 @@ export default class Markdown extends Component {
 	}
 }
 
-export {render, linkTo};
+export { render, linkTo };

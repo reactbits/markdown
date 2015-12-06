@@ -18,8 +18,15 @@ module.exports = {
 	],
 	module: {
 		loaders: [
-			{test: /\.json$/, loader: 'json'},
-			{test: /\.jsx?$/, loader: 'babel', exclude: /node_modules/},
+			{
+				test: /\.json$/,
+				loader: 'json',
+			},
+			{
+				test: /\.jsx?$/,
+				loader: 'babel',
+				exclude: /node_modules/,
+			},
 		],
 	},
 	resolve: {

@@ -12,7 +12,7 @@ const md = markdownit({
 	html: true,
 	linkify: true,
 	typographer: true,
-	highlight: highlight,
+	highlight,
 });
 
 configureLinkifier(md.linkify);

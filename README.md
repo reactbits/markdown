@@ -42,10 +42,12 @@ class Example extends Component {
 ```
 
 ## TODO
-* [x] Use markdown-it to render markdown content
-* [x] Use prismjs for syntax highlighting
-* [ ] Render HTML content if content-type is not markdown
-* [ ] Allow to extend markdown rendering with markdown-it plugins
+* [x] use markdown-it to render markdown content
+* [x] use prismjs for syntax highlighting
+* [ ] render HTML content if content-type is not markdown
+* [ ] allow to extend markdown rendering with markdown-it plugins
+* [ ] support diff files
+* [ ] reuse embed.js features
 
 ## Licence
 

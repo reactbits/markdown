@@ -34,7 +34,7 @@
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
     "prismjs-package": "^0.3.0",
-    "react": "^0.14.3",
+    "react": "^0.14.5",
     "strip-indent": "^1.0.1",
     "twemoji": "^1.4.1"
   },
@@ -50,7 +50,7 @@
     "eslint-plugin-react": "^3.13.1",
     "express": "^4.13.3",
     "json-loader": "^0.5.4",
-    "react-dom": "^0.14.3",
+    "react-dom": "^0.14.5",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0"

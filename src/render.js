@@ -1,4 +1,4 @@
-import markdownit from 'markdown-it';
+import MarkdownIt from 'markdown-it';
 import deflist from 'markdown-it-deflist';
 import mdsup from 'markdown-it-sup';
 import mdsub from 'markdown-it-sub';
@@ -8,7 +8,7 @@ import twemoji from 'twemoji';
 import configureLinkifier from './linkify';
 import highlight from './highlight';
 
-const md = markdownit({
+const md = new MarkdownIt({
 	html: true,
 	linkify: true,
 	typographer: true,
@@ -33,15 +33,18 @@ md.renderer.rules.emoji = (token, idx) => {
 const fence = md.renderer.rules.fence;
 const reCodeBlock = /^\<(pre)\>(<code\s+(class="[\w-]+")\s*\>)/;
 
-// TODO this code should in markdown-it
+// TODO this code should be in markdown-it
 // patches syntax highlighter to add class to pre tag
 md.renderer.rules.fence = function () {
 	const args = [].slice.call(arguments);
 	const result = fence.apply(this, args);
-	return result.replace(reCodeBlock, '<$1 $3>$2');
+	const output = result.replace(reCodeBlock, '<$1 $3>$2');
+	return output;
 };
 
 // Renders given markdown text to HTML.
-export default function render(text) {
+export function render(text) {
 	return md.render(text || '');
 }
+
+export default render;

@@ -18,7 +18,8 @@ export function isVideoURL(value) {
 	return isURL(value) && toString(value).match(videoPattern);
 }
 
-// automatically adjusts short video URLS, i.e. http://vimeo.com/66140585 -> http://player.vimeo.com/video/66140585
+// automatically adjusts short video URLS
+// e.g. http://vimeo.com/66140585 -> http://player.vimeo.com/video/66140585
 export function completeVideoURL(value) {
 	const vimeo = /https?:\/\/vimeo.com\/(\d+)/i;
 	let match = vimeo.exec(value);

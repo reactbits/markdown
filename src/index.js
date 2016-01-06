@@ -23,7 +23,7 @@ function renderContent(source) {
 	return <span dangerouslySetInnerHTML={{ __html: html }}/>;
 }
 
-export default class Markdown extends Component {
+export class Markdown extends Component {
 	render() {
 		const src = this.props.source;
 		const className = this.props.className || 'markdown';
@@ -42,4 +42,5 @@ export default class Markdown extends Component {
 	}
 }
 
+export default Markdown;
 export { render, linkTo };

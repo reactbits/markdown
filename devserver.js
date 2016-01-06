@@ -1,5 +1,3 @@
-process.env.UV_THREADPOOL_SIZE = 100;
-
 const express = require('express');
 const webpack = require('webpack');
 const config = require('./webpack.config');
@@ -11,8 +9,10 @@ const compiler = webpack(config);
 app.use(express.static(process.cwd()));
 
 app.use(require('webpack-dev-middleware')(compiler, {
-	noInfo: true,
 	publicPath: config.output.publicPath,
+	stats: {
+		colors: true,
+	},
 }));
 
 app.use(require('webpack-hot-middleware')(compiler));

@@ -13,15 +13,17 @@ export default function configureLinkifier(linkify) {
 		fuzzyEmail: true,
 	});
 
+	const rexprs = { };
+
 	function register(prefix, key, replaceUrl) {
 		linkify.add(prefix, {
 			validate: function validate(text, pos, self) {
 				const tail = text.slice(pos);
 
-				let re = self.re[key];
+				let re = rexprs[key];
 				if (!re) {
 					re = new RegExp('^([a-zA-Z0-9_]){1,15}(?!_)(?=$|' + self.re.src_ZPCc + ')');
-					self.re[key] = re;
+					rexprs[key] = re;
 				}
 
 				if (re.test(tail)) {
@@ -36,9 +38,11 @@ export default function configureLinkifier(linkify) {
 				return 0;
 			},
 
+			/*eslint-disable*/
 			normalize: function normalize(match) {
 				match.url = replaceUrl(match.url);
 			},
+			/*eslint-enable*/
 		});
 	}
 

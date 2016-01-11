@@ -51,7 +51,7 @@
     "express": "^4.13.3",
     "json-loader": "^0.5.4",
     "react-dom": "^0.14.6",
-    "webpack": "^1.12.10",
+    "webpack": "^1.12.11",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0"
   }

@@ -1,3 +1,4 @@
+[![npm version](https://badge.fury.io/js/react-markdown2.svg)](https://badge.fury.io/js/react-markdown2)
 [![Build Status](https://drone.io/github.com/reactbits/markdown/status.png)](https://drone.io/github.com/reactbits/markdown/latest)
 
 # markdown

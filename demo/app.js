@@ -1,51 +1,59 @@
 import React, { Component } from 'react';
 import Markdown from '../src';
+import qwest from 'qwest';
 
-function code(src, lang = 'js') {
-	return '\n```' + lang + '\n' + src + '\n```';
-}
+const contentLinks = [
+	{
+		url: '/content/all.md',
+		label: 'All in one',
+	},
+	{
+		url: '/content/code.md',
+		label: 'Code blocks',
+	},
+	{
+		url: '/content/sequence.md',
+		label: 'Sequence diagrams',
+	},
+	{
+		url: '/content/flow.md',
+		label: 'Flow charts',
+	},
+];
 
 export default class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { content: '' };
+		this.load(contentLinks[2].url);
+	}
+
+	load(url) {
+		qwest.get(url).then((xhr, content) => {
+			this.setState({ content });
+		});
+	}
+
 	render() {
-		const sample = code(`function foo() {
-  console.log("hi");
-}`);
-
+		const items = contentLinks.map(t => {
+			const linkProps = {
+				key: t.url,
+				href: t.url,
+				onClick: (e) => {
+					e.preventDefault();
+					this.load(t.url);
+					return false;
+				},
+				style: {
+					margin: '4px',
+				},
+			};
+			return <a {...linkProps}>{t.label}</a>;
+		});
 		return (
-			<div>
-				{/* Pass Markdown source to the `source` prop */}
-				<Markdown source="**Markdown rules!**" />
-
-				{/* Or pass it as children */}
-				<Markdown>
-{`
-## Header
-
-1. One
-1. Two
-
-## Syntax highlighting
-
-${sample}
-
-## Emoji
-
-:) :D
-
-## Links
-
-@sergeyt please fix issue 180999
-
-test@mail.com
-
-see #hashtag
-`}
-
-					{/* You can nest React components, too */}
-					<div>Nested component</div>
-
-					{`Test`}
-				</Markdown>
+			<div className="app">
+				<div>{items}</div>
+				<Markdown source={this.state.content} />
 			</div>
 		);
 	}

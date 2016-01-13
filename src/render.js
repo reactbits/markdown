@@ -6,7 +6,7 @@ import footnotes from 'markdown-it-footnote';
 import emoji from 'markdown-it-emoji';
 import twemoji from 'twemoji';
 import configureLinkifier from './linkify';
-import highlight from './highlight';
+import highlight from './codeblock';
 
 const md = new MarkdownIt({
 	html: true,
@@ -26,20 +26,6 @@ md.use(footnotes);
 
 md.renderer.rules.emoji = (token, idx) => {
 	return twemoji.parse(token[idx].content);
-};
-
-// fix rendering of code blocks
-
-const fence = md.renderer.rules.fence;
-const reCodeBlock = /^\<(pre)\>(<code\s+(class="[\w-]+")\s*\>)/;
-
-// TODO this code should be in markdown-it
-// patches syntax highlighter to add class to pre tag
-md.renderer.rules.fence = function () {
-	const args = [].slice.call(arguments);
-	const result = fence.apply(this, args);
-	const output = result.replace(reCodeBlock, '<$1 $3>$2');
-	return output;
 };
 
 // Renders given markdown text to HTML.

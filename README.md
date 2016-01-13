@@ -2,7 +2,7 @@
 [![Build Status](https://drone.io/github.com/reactbits/markdown/status.png)](https://drone.io/github.com/reactbits/markdown/latest)
 
 # markdown
-Yet another react component to render markdown
+Yet another react component to render markdown.
 
 ## Install
 
@@ -43,12 +43,16 @@ class Example extends Component {
 ```
 
 ## TODO
-* [x] use markdown-it to render markdown content
-* [x] use prismjs for syntax highlighting
+* [x] Use markdown-it to render markdown content
+* [x] Use prismjs for syntax highlighting
+* [ ] Diagrams
+	* [x] [Sequance diagrams](https://github.com/bramp/js-sequence-diagrams)
+	* [ ] [Flowchart](https://github.com/adrai/flowchart.js)
+	* [ ] Buttons to show source code of diagram
+* [ ] Automatically detect and render diff patch blocks
+* [ ] Integrate/implement [embed.js](https://github.com/ritz078/embed.js) features
 * [ ] render HTML content if content-type is not markdown
 * [ ] allow to extend markdown rendering with markdown-it plugins
-* [ ] support diff files
-* [ ] reuse embed.js features
 
 ## Licence
 

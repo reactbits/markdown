@@ -19,13 +19,17 @@ const contentLinks = [
 		url: '/content/flow.md',
 		label: 'Flow charts',
 	},
+	{
+		url: '/content/embed.md',
+		label: 'Embeddable links',
+	},
 ];
 
 export default class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { content: '' };
-		this.load(contentLinks[3].url);
+		this.load(contentLinks[4].url);
 	}
 
 	load(url) {

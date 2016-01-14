@@ -1,5 +1,7 @@
 const path = require('path');
 const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
 const webpack = require('webpack');
 const config = require('./webpack.config');
 
@@ -7,6 +9,8 @@ const port = 8000;
 const app = express();
 const compiler = webpack(config);
 
+app.use(morgan('dev'));
+app.use(cors());
 app.use(express.static(process.cwd()));
 
 app.use(require('webpack-dev-middleware')(compiler, {

@@ -49,6 +49,17 @@ class Example extends Component {
 	* [x] [Sequance diagrams](https://github.com/bramp/js-sequence-diagrams)
 	* [x] [Flowchart](https://github.com/adrai/flowchart.js)
 	* [ ] Buttons to show source code of diagram
+* [ ] Auto-embeddable links
+	* [ ] Video services
+		* [ ] youtube
+		* [ ] vimeo
+		* [ ] vine
+		* [ ] daylymotion
+	* [ ] Audio services
+	* [ ] github
+	* [ ] twitter
+	* [ ] facebook
+	* [ ] google maps
 * [ ] Automatically detect and render diff patch blocks
 * [ ] Integrate/implement [embed.js](https://github.com/ritz078/embed.js) features
 * [ ] render HTML content if content-type is not markdown

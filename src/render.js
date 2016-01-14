@@ -7,6 +7,7 @@ import emoji from 'markdown-it-emoji';
 import twemoji from 'twemoji';
 import configureLinkifier from './linkify';
 import highlight from './codeblock';
+import embed from './embed';
 
 const md = new MarkdownIt({
 	html: true,
@@ -23,6 +24,7 @@ md.use(deflist);
 md.use(mdsub);
 md.use(mdsup);
 md.use(footnotes);
+md.use(embed);
 
 md.renderer.rules.emoji = (token, idx) => {
 	return twemoji.parse(token[idx].content);

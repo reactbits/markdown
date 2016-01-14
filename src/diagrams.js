@@ -1,12 +1,20 @@
 /*eslint-disable*/
-import sd from 'js-sequence-diagrams';
+import sequenceDiagram from 'js-sequence-diagrams';
+import flowChart from 'flowchart';
 /*eslint-enable*/
 
 export default function render(elems) {
 	$.each(elems, (i, e) => {
 		const lang = $(e).data('lang');
-		if (lang === 'sequence') {
+		switch (lang) {
+		case 'sequence':
 			$(e).sequenceDiagram({ theme: 'hand' });
+			break;
+		case 'flowchart':
+			$(e).flowChart();
+			break;
+		default:
+			break;
 		}
 	});
 }

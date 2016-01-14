@@ -47,7 +47,7 @@ class Example extends Component {
 * [x] Use prismjs for syntax highlighting
 * [ ] Diagrams
 	* [x] [Sequance diagrams](https://github.com/bramp/js-sequence-diagrams)
-	* [ ] [Flowchart](https://github.com/adrai/flowchart.js)
+	* [x] [Flowchart](https://github.com/adrai/flowchart.js)
 	* [ ] Buttons to show source code of diagram
 * [ ] Automatically detect and render diff patch blocks
 * [ ] Integrate/implement [embed.js](https://github.com/ritz078/embed.js) features

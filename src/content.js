@@ -7,6 +7,14 @@ import renderDiagrams from './diagrams';
 
 export default class Content extends Component {
 	componentDidMount() {
+		this.replaceBlocks();
+	}
+
+	componentDidUpdate() {
+		this.replaceBlocks();
+	}
+
+	replaceBlocks() {
 		const root = $(ReactDOM.findDOMNode(this));
 		renderDiagrams(root.find('.diagram'));
 	}

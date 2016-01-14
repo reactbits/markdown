@@ -25,7 +25,7 @@ export default class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { content: '' };
-		this.load(contentLinks[2].url);
+		this.load(contentLinks[3].url);
 	}
 
 	load(url) {

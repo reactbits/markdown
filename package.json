@@ -28,6 +28,7 @@
     "classnames": "^2.2.3",
     "eve": "^0.5.0",
     "flowchart": "git://github.com/sergeyt/flowchart.js.git#modularity",
+    "github-markdown-css": "^2.2.0",
     "jquery": "^2.2.0",
     "js-sequence-diagrams": "git://github.com/sergeyt/js-sequence-diagrams.git#modularity",
     "linkify-it": "^1.2.0",

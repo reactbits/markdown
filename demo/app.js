@@ -24,13 +24,17 @@ const contentLinks = [
 		url: '/content/embed.md',
 		label: 'Embeddable links',
 	},
+	{
+		url: '/content/tasklist.md',
+		label: 'Task lists',
+	},
 ];
 
 export default class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { content: '' };
-		this.load(contentLinks[4].url);
+		this.load(contentLinks[5].url);
 	}
 
 	load(url) {

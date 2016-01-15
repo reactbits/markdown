@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import render from './render';
 import stripIndent from 'strip-indent';
 import renderDiagrams from './diagrams';
+import styles from 'github-markdown-css/github-markdown';
 
 export default class Content extends Component {
 	componentDidMount() {
@@ -21,6 +22,6 @@ export default class Content extends Component {
 	render() {
 		const { source } = this.props;
 		const html = render(stripIndent(source));
-		return <span dangerouslySetInnerHTML={{ __html: html }}/>;
+		return <span className={styles['markdown-body']} dangerouslySetInnerHTML={{ __html: html }}/>;
 	}
 }

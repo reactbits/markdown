@@ -39,7 +39,7 @@ function codeBlock(html, lang) {
 	return `<pre class="${className}"><code>${html}</code></pre>`;
 }
 
-export default function render(code, language) {
+export function render(code, language) {
 	const lang = (language || '').toLowerCase();
 	const diagramLang = diagramLangs[lang];
 	if (diagramLang) {
@@ -52,3 +52,22 @@ export default function render(code, language) {
 	// TODO inteligent language detection
 	return code;
 }
+
+import { unescapeAll } from 'markdown-it/lib/common/utils';
+
+/* eslint-disable no-param-reassign */
+export default function plugin(md) {
+	md.renderer.rules.fence = function (tokens, idx, options) {
+		const token = tokens[idx];
+		const info = token.info ? unescapeAll(token.info).trim() : '';
+		let langName = '';
+
+		if (info) {
+			langName = info.split(/\s+/g)[0];
+			token.attrJoin('class', options.langPrefix + langName);
+		}
+
+		return render(token.content, langName);
+	};
+}
+/* eslint-enable */

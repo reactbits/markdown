@@ -6,7 +6,7 @@ import footnotes from 'markdown-it-footnote';
 import emoji from 'markdown-it-emoji';
 import twemoji from 'twemoji';
 import configureLinkifier from './linkify';
-import highlight from './codeblock';
+import codeblock from './codeblock';
 import embed from './embed';
 import tasklist from './tasklist';
 
@@ -14,12 +14,12 @@ const md = new MarkdownIt({
 	html: true,
 	linkify: true,
 	typographer: true,
-	highlight,
 });
 
 configureLinkifier(md.linkify);
 
 // use plugins
+md.use(codeblock);
 md.use(emoji);
 md.use(deflist);
 md.use(mdsub);

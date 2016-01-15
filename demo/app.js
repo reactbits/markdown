@@ -21,6 +21,10 @@ const contentLinks = [
 		label: 'Flow charts',
 	},
 	{
+		url: '/content/railroad.md',
+		label: 'Railroad diagrams',
+	},
+	{
 		url: '/content/embed.md',
 		label: 'Embeddable links',
 	},
@@ -34,7 +38,7 @@ export default class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { content: '' };
-		this.load(contentLinks[5].url);
+		this.load(contentLinks[4].url);
 	}
 
 	load(url) {

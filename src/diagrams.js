@@ -2,6 +2,7 @@
 import sequenceDiagram from 'js-sequence-diagrams';
 import flowChart from 'flowchart';
 /*eslint-enable*/
+import railroad from './railroad';
 
 export default function render(elems) {
 	$.each(elems, (i, e) => {
@@ -12,6 +13,9 @@ export default function render(elems) {
 			break;
 		case 'flowchart':
 			$(e).flowChart();
+			break;
+		case 'railroad':
+			railroad(e);
 			break;
 		default:
 			break;

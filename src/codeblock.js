@@ -27,6 +27,7 @@ const diagramLangs = {
 	// TODO flow could be ambigious with flow.js
 	flow: 'flowchart',
 	flowchart: 'flowchart',
+	railroad: 'railroad',
 };
 
 function diagram(code, lang) {

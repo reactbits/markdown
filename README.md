@@ -1,5 +1,5 @@
 [![npm version](https://badge.fury.io/js/react-markdown2.svg)](https://badge.fury.io/js/react-markdown2)
-[![Build Status](https://drone.io/github.com/reactbits/markdown/status.png)](https://drone.io/github.com/reactbits/markdown/latest)
+[![Build Status](https://travis-ci.org/reactbits/markdown.svg?branch=master)](https://travis-ci.org/reactbits/markdown)
 [![Total downloads](https://img.shields.io/npm/dt/react-markdown2.svg)](https://www.npmjs.com/package/react-markdown2)
 
 [![Dependency Status](https://david-dm.org/reactbits/markdown.svg)](https://david-dm.org/reactbits/markdown)

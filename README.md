@@ -1,5 +1,9 @@
 [![npm version](https://badge.fury.io/js/react-markdown2.svg)](https://badge.fury.io/js/react-markdown2)
 [![Build Status](https://drone.io/github.com/reactbits/markdown/status.png)](https://drone.io/github.com/reactbits/markdown/latest)
+[![Total downloads](https://img.shields.io/npm/dt/react-markdown2.svg)](https://www.npmjs.com/package/react-markdown2)
+
+[![Dependency Status](https://david-dm.org/reactbits/markdown.svg)](https://david-dm.org/reactbits/markdown)
+[![devDependency Status](https://david-dm.org/reactbits/markdown/dev-status.svg)](https://david-dm.org/reactbits/markdown#info=devDependencies)
 
 # markdown
 Yet another react component to render markdown.

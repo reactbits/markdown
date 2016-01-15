@@ -1,5 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
 	devtool: 'source-map',
@@ -13,6 +17,7 @@ module.exports = {
 		publicPath: '/build/',
 	},
 	plugins: [
+		new ExtractTextPlugin('styles.css', { allChunks: true }),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
 		new webpack.ProvidePlugin({
@@ -20,11 +25,13 @@ module.exports = {
 			jQuery: 'jquery',
 			'window.jQuery': 'jquery',
 		}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				NODE_ENV: JSON.stringify(NODE_ENV),
+			},
+		}),
 	],
 	module: {
-		noParse: [
-			/vendor\/*/,
-		],
 		loaders: [
 			{
 				test: /\.json$/,
@@ -35,10 +42,14 @@ module.exports = {
 				loader: 'babel',
 				exclude: /(node_modules|vendor)/,
 			},
+			{
+				test: /(\.scss|\.css)$/,
+				loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[local]!postcss!sass?sourceMap'), // eslint-disable-line max-len
+			},
 		],
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx'],
+		extensions: ['', '.js', '.jsx', '.json', '.css', '.scss'],
 		modulesDirectories: ['node_modules', 'demo', 'src'],
 		alias: {
 			'dev/raphael.core.js': './dev/raphael.core.js',
@@ -47,4 +58,5 @@ module.exports = {
 			'raphael.vml': './dev/raphael.vml.js',
 		},
 	},
+	postcss: [autoprefixer],
 };

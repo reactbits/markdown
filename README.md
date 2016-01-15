@@ -51,17 +51,17 @@ class Example extends Component {
 	* [ ] Buttons to show source code of diagram
 * [ ] Auto-embeddable links
 	* [ ] Video services
-		* [ ] youtube
-		* [ ] vimeo
-		* [ ] vine
-		* [ ] daylymotion
+		* [x] youtube
+		* [x] vimeo
+		* [x] vine
+		* [x] daylymotion
 		* [ ] viddler
 		* [ ] blip.tv
 	* [ ] Audio services
 	* [ ] github
 	* [ ] twitter
 	* [ ] facebook
-	* [ ] google maps
+	* [x] google maps
 * [ ] Automatically detect and render diff patch blocks
 * [ ] Integrate/implement [embed.js](https://github.com/ritz078/embed.js) features
 * [ ] render HTML content if content-type is not markdown

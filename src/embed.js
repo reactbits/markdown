@@ -1,4 +1,6 @@
+import classNames from 'classnames';
 import _ from 'lodash';
+import styles from './style';
 
 /**
  * @author Steven Levithan <stevenlevithan.com> (MIT license)
@@ -11,14 +13,16 @@ function isURL(value) {
 	return value.match(urlPattern);
 }
 
-function iframe(src, attrs = {}, style = {}, afterFrame = '') {
+// TODO use ReactDOMServer.renderToStaticMarkup
+function iframe(className, src, attrs = {}, style = {}, afterFrame = '') {
 	const allowFullScreen = 'webkitAllowFullScreen mozallowfullscreen allowFullScreen';
 	const noborder = 'frameBorder="0"';
 	const a = _.map(attrs, (v, k) => `${k}="${v}"`).join(' ');
 	const defaultStyle = { border: 0 };
-	const css = _.map({ ...defaultStyle, style }, (v, k) => `${k}:${v}`).join(';');
+	const css = _.map({ ...defaultStyle, ...style }, (v, k) => `${k}:${v}`).join(';');
 	const frame = `<iframe src="${src}" ${noborder} ${allowFullScreen} ${a} style="${css}""></iframe>`; // eslint-disable-line
-	return `<div class="embed-container">${frame}${afterFrame}</div>`;
+	const classList = classNames(styles.embed_container, className);
+	return `<div class="${classList}">${frame}${afterFrame}</div>`;
 }
 
 const image = {
@@ -29,21 +33,21 @@ const youtube = {
 	test: /youtube\.com/i,
 	// TODO support watch URLs
 	render(url) {
-		return iframe(url);
+		return iframe(styles.youtube, url);
 	},
 };
 const vimeo = {
 	test: /vimeo.com\/(\d+)/i,
 	render(url, match) {
 		const src = `http://player.vimeo.com/video/${match[1]}`;
-		return iframe(src);
+		return iframe(styles.vimeo, src);
 	},
 };
 const daylymotion = {
 	test: /dailymotion.com\/video\/([\w\d]+)/i,
 	render(url, match) {
 		const src = `http://www.dailymotion.com/embed/video/${match[1]}`;
-		return iframe(src);
+		return iframe(styles.daylymotion, src);
 	},
 };
 const vine = {
@@ -51,21 +55,21 @@ const vine = {
 	render(url, match) {
 		const src = `https://vine.co/v/${match[1]}/embed/simple`;
 		const script = `<script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>`; // eslint-disable-line
-		return iframe(src, {}, {}, script);
+		return iframe(styles.vine, src, {}, {}, script);
 	},
 };
 const googleMaps = {
 	test: /google\.com\/maps\/embed\?(.+)/i,
 	render(url, match) {
 		const src = `https://www.google.com/maps/embed?${match[1]}`;
-		return iframe(src);
+		return iframe(styles.google_map, src);
 	},
 };
 const instagram = {
 	test: /instagram\.com\/p\/([\w\d]+)/i,
 	render(url, match) {
 		const src = `//instagram.com/p/${match[1]}/embed/`;
-		return iframe(src, { scrolling: 'no' }, { 'padding-bottom': '120%' });
+		return iframe(styles.instagram, src, { scrolling: 'no' });
 	},
 };
 const rules = [

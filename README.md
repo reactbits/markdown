@@ -55,6 +55,8 @@ class Example extends Component {
 		* [ ] vimeo
 		* [ ] vine
 		* [ ] daylymotion
+		* [ ] viddler
+		* [ ] blip.tv
 	* [ ] Audio services
 	* [ ] github
 	* [ ] twitter

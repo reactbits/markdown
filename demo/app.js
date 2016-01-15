@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Grid, Row, Col } from 'react-bootstrap';
 import Markdown from '../src';
 import qwest from 'qwest';
 
@@ -55,10 +56,14 @@ export default class App extends Component {
 			return <a {...linkProps}>{t.label}</a>;
 		});
 		return (
-			<div className="app">
-				<div>{items}</div>
-				<Markdown source={this.state.content} />
-			</div>
+			<Grid className="app">
+				<Row>
+					<Col md={8}>
+						<div>{items}</div>
+						<Markdown source={this.state.content} />
+					</Col>
+				</Row>
+			</Grid>
 		);
 	}
 }

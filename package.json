@@ -63,6 +63,7 @@
     "json-loader": "^0.5.4",
     "morgan": "^1.6.1",
     "qwest": "^3.0.0",
+    "react-bootstrap": "^0.28.2",
     "react-dom": "^0.14.6",
     "webpack": "^1.12.11",
     "webpack-dev-middleware": "^1.4.0",

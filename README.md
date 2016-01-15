@@ -52,7 +52,9 @@ class Example extends Component {
 * [ ] Diagrams
 	* [x] [Sequance diagrams](https://github.com/bramp/js-sequence-diagrams)
 	* [x] [Flowchart](https://github.com/adrai/flowchart.js)
+	* [x] [Railroad diagrams](https://github.com/tabatkins/railroad-diagrams)
 	* [ ] Buttons to show source code of diagram
+* [ ] [KaTeX](https://github.com/Khan/KaTeX)
 * [ ] Auto-embeddable links
 	* [ ] Video services
 		* [x] youtube

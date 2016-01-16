@@ -4,6 +4,7 @@ const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
+const cssLoader = 'css?sourceMap&modules&importLoaders=1&localIdentName=[local]';
 
 module.exports = {
 	devtool: 'source-map',
@@ -43,13 +44,21 @@ module.exports = {
 				exclude: /(node_modules|vendor)/,
 			},
 			{
-				test: /(\.scss|\.css)$/,
-				loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[local]!postcss!sass?sourceMap'), // eslint-disable-line max-len
+				test: /\.(scss|css)$/,
+				loader: ExtractTextPlugin.extract('style', cssLoader, 'postcss', 'sass?sourceMap'),
+			},
+			{
+				test: /\.less$/,
+				loader: ExtractTextPlugin.extract('style', cssLoader, 'postcss', 'less?sourceMap'),
+			},
+			{
+				test: /\.(ttf|eot|svg|woff(2)?)$/,
+				loader: 'file-loader',
 			},
 		],
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx', '.json', '.css', '.scss'],
+		extensions: ['', '.js', '.jsx', '.json', '.css', '.scss', '.less'],
 		modulesDirectories: ['node_modules', 'demo', 'src'],
 		alias: {
 			'dev/raphael.core.js': './dev/raphael.core.js',

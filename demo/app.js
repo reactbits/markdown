@@ -17,6 +17,10 @@ const contentLinks = [
 		label: 'Diff blocks',
 	},
 	{
+		url: '/content/tex.md',
+		label: 'TeX blocks',
+	},
+	{
 		url: '/content/sequence.md',
 		label: 'Sequence diagrams',
 	},
@@ -43,7 +47,7 @@ export default class App extends Component {
 		super(props);
 		this.state = { content: '', activeKey: -1 };
 		this.select = this.select.bind(this);
-		this.select(2);
+		this.select(3);
 	}
 
 	select(i) {

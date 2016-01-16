@@ -1,28 +1,34 @@
 import React from 'react';
+import { renderToString } from 'react-dom/server';
 import highlight from 'prismjs-package';
 // TODO do that in prismjs-package
 import style from 'prismjs-package/themes/prism.css'; // eslint-disable-line
 import DiffView from 'react-diffview';
-import { renderToString } from 'react-dom/server';
 
-const diagramLangs = {
+const externalLangs = {
 	seq: 'sequence',
 	sequence: 'sequence',
 	// TODO flow could be ambigious with flow.js
 	flow: 'flowchart',
 	flowchart: 'flowchart',
 	railroad: 'railroad',
+	tex: 'tex',
 };
 
-function diagram(code, lang) {
-	return `<div class="diagram" data-lang="${lang}">${code}</div>`;
+const externalClass = {
+	tex: 'tex',
+};
+
+function external(code, lang) {
+	const className = externalClass[lang] || 'diagram';
+	return `<div class="injection ${className}" data-lang="${lang}">${code}</div>`;
 }
 
 export function render(code, language) {
 	const lang = (language || '').toLowerCase();
-	const diagramLang = diagramLangs[lang];
-	if (diagramLang) {
-		return diagram(code, diagramLang);
+	const externalLang = externalLangs[lang];
+	if (externalLang) {
+		return external(code, externalLang);
 	}
 	if (lang.match(/^diff?/i)) {
 		const view = <DiffView source={code}/>;

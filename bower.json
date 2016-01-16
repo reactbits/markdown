@@ -1,0 +1,21 @@
+{
+  "name": "react-markdown2",
+  "version": "0.9.0",
+  "authors": [
+    "Sergey Todyshev (stodyshev@gmail.com)"
+  ],
+  "description": "React markdown component",
+  "moduleType": [
+    "es6",
+    "globals",
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ],
+  "dependencies": {
+    "KaTeX": "katex#~0.5.1"
+  }
+}

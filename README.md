@@ -55,6 +55,9 @@ class Example extends Component {
 	* [x] [Railroad diagrams](https://github.com/tabatkins/railroad-diagrams)
 	* [ ] Buttons to show source code of diagram
 * [ ] [KaTeX](https://github.com/Khan/KaTeX)
+	* [x] basic integration
+	* [ ] import katex css
+* [ ] MathJax
 * [ ] Auto-embeddable links
 	* [ ] Video services
 		* [x] youtube

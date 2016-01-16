@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import render from './render';
 import stripIndent from 'strip-indent';
-import renderDiagrams from './diagrams';
+import renderInjections from './inject';
 import styles from 'github-markdown-css/github-markdown';
 
 export default class Content extends Component {
@@ -16,7 +16,7 @@ export default class Content extends Component {
 
 	replaceBlocks() {
 		const root = $(ReactDOM.findDOMNode(this));
-		renderDiagrams(root.find('.diagram'));
+		renderInjections(root.find('.injection'));
 	}
 
 	render() {

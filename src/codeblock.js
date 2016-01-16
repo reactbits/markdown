@@ -1,6 +1,9 @@
+import React from 'react';
 import highlight from 'prismjs-package';
 // TODO do that in prismjs-package
 import style from 'prismjs-package/themes/prism.css'; // eslint-disable-line
+import DiffView from 'react-diffview';
+import { renderToString } from 'react-dom/server';
 
 const diagramLangs = {
 	seq: 'sequence',
@@ -20,6 +23,10 @@ export function render(code, language) {
 	const diagramLang = diagramLangs[lang];
 	if (diagramLang) {
 		return diagram(code, diagramLang);
+	}
+	if (lang.match(/^diff?/i)) {
+		const view = <DiffView source={code}/>;
+		return renderToString(view);
 	}
 	return highlight(code, language);
 }

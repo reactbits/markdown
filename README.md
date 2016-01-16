@@ -64,10 +64,19 @@ class Example extends Component {
 		* [ ] viddler
 		* [ ] blip.tv
 	* [ ] Audio services
-	* [ ] github
-	* [ ] twitter
-	* [ ] facebook
-	* [x] google maps
+	* [ ] Code snippets
+		* [ ] github gist
+		* [ ] codepen
+		* [ ] ideone
+		* [ ] jsbin
+		* [ ] jsfiddle
+		* [ ] plunker
+	* [ ] Social media
+		* [ ] twitter
+		* [ ] facebook
+	* [ ] Maps
+		* [x] google maps
+* [x] Unified diff fence blocks
 * [ ] Automatically detect and render diff patch blocks
 * [ ] Integrate/implement [embed.js](https://github.com/ritz078/embed.js) features
 * [ ] render HTML content if content-type is not markdown

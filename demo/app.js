@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Nav, NavItem } from 'react-bootstrap';
 import Markdown from '../src';
 import qwest from 'qwest';
 
@@ -11,6 +11,10 @@ const contentLinks = [
 	{
 		url: '/content/code.md',
 		label: 'Code blocks',
+	},
+	{
+		url: '/content/diff.md',
+		label: 'Diff blocks',
 	},
 	{
 		url: '/content/sequence.md',
@@ -37,37 +41,39 @@ const contentLinks = [
 export default class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { content: '' };
-		this.load(contentLinks[4].url);
+		this.state = { content: '', activeKey: -1 };
+		this.select = this.select.bind(this);
+		this.select(2);
 	}
 
-	load(url) {
-		qwest.get(url).then((xhr, content) => {
-			this.setState({ content });
+	select(i) {
+		const t = contentLinks[i];
+		qwest.get(t.url).then((xhr, content) => {
+			this.setState({ content, activeKey: i });
 		});
 	}
 
 	render() {
-		const items = contentLinks.map(t => {
+		const items = contentLinks.map((t, i) => {
 			const linkProps = {
-				key: t.url,
+				key: i,
 				href: t.url,
-				onClick: (e) => {
-					e.preventDefault();
-					this.load(t.url);
-					return false;
-				},
+				eventKey: i,
 				style: {
 					margin: '4px',
 				},
 			};
-			return <a {...linkProps}>{t.label}</a>;
+			return <NavItem {...linkProps}>{t.label}</NavItem>;
 		});
 		return (
 			<Grid className="app">
 				<Row>
-					<Col md={8}>
-						<div>{items}</div>
+					<Col md={3}>
+						<Nav bsStyle="pills" stacked activeKey={this.state.activeKey} onSelect={this.select}>
+							{items}
+						</Nav>
+					</Col>
+					<Col md={9}>
 						<Markdown source={this.state.content} />
 					</Col>
 				</Row>

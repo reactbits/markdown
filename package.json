@@ -43,6 +43,7 @@
     "railroad-diagrams": "^1.0.0",
     "raphael": "^2.1.4",
     "react": "^0.14.6",
+    "react-diffview": "^0.1.1",
     "react-dom": "^0.14.6",
     "strip-indent": "^1.0.1",
     "twemoji": "^1.4.1"

@@ -94,23 +94,29 @@ rule('vine.co', regex.vine, (url, match) => {
 	return iframe({ className: styles.vine, src, afterFrame: vineScript });
 });
 
+rule('liveleak.com', regex.liveleak, embed);
+
+rule('ted.com', regex.ted, (url, match) => {
+	const src = `https://embed-ssl.ted.com/${match[1]}`;
+	return iframe({ className: styles.ted, src });
+});
+
+rule('ustream.tv', regex.ustream, embed);
+
 rule('google.com', regex.googleMap, (url, match) => {
 	const src = `https://www.google.com/maps/embed?${match[1]}`;
 	return iframe({ className: styles.google_map, src });
 });
 
+// image
 rule('instagram.com', regex.instagram, (url, match) => {
 	const src = `//instagram.com/p/${match[1]}/embed/`;
 	return iframe({ className: styles.instagram, src, scrolling: 'no' });
 });
 
-// image
 rule('flickr.com', regex.flickr, embed);
 rule('slideshare.net', regex.slideshare, embed);
-// video
-rule('liveleak.com', regex.liveleak, embed);
-rule('ted.com', regex.ted, embed);
-rule('ustream.tv', regex.ustream, embed);
+
 // audio
 
 const soundcloudParams = queryString({

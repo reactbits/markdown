@@ -63,7 +63,7 @@ export default class App extends Component {
 		super(props);
 		this.state = { content: '', activeKey: -1 };
 		this.select = this.select.bind(this);
-		this.select(8);
+		this.select(9);
 	}
 
 	select(i) {

@@ -16,7 +16,7 @@ export const slideshare = /slideshare.net\/[a-zA-Z0-9_-]*\/[a-zA-Z0-9_-]*/i;
 // video
 export const dailymotion = /dailymotion.com\/video\/([\w\d]+)/i;
 export const liveleak = /liveleak.com\/view\?i=[a-zA-Z0-9_]+/i;
-export const ted = /ted.com\/talks\/[a-zA-Z0-9_]+/i;
+export const ted = /ted.com\/(.+)/i;
 export const ustream = /ustream.tv\/[a-z\/0-9]*/i;
 export const vimeo = /vimeo.com\/(\d+)/i;
 export const vine = /vine.co\/v\/([\w\d]+)/i;

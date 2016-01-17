@@ -14,7 +14,7 @@ export const instagram = /instagram\.com\/p\/([\w\d]+)/i;
 export const slideshare = /slideshare.net\/[a-zA-Z0-9_-]*\/[a-zA-Z0-9_-]*/i;
 
 // video
-export const daylymotion = /dailymotion.com\/video\/([\w\d]+)/i;
+export const dailymotion = /dailymotion.com\/video\/([\w\d]+)/i;
 export const liveleak = /liveleak.com\/view\?i=[a-zA-Z0-9_]+/i;
 export const ted = /ted.com\/talks\/[a-zA-Z0-9_]+/i;
 export const ustream = /ustream.tv\/[a-z\/0-9]*/i;

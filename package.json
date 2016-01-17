@@ -30,6 +30,7 @@
     "eve": "^0.5.0",
     "flowchart.js": "^1.6.0",
     "github-markdown-css": "^2.2.0",
+    "hashtrie": "^1.0.0",
     "jquery": "^2.2.0",
     "js-sequence-diagrams": "git://github.com/sergeyt/js-sequence-diagrams.git#modularity",
     "katex": "^0.5.1",

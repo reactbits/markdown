@@ -33,8 +33,24 @@ const contentLinks = [
 		label: 'Railroad diagrams',
 	},
 	{
-		url: '/content/embed.md',
-		label: 'Embeddable links',
+		url: '/content/image.md',
+		label: 'Embed image',
+	},
+	{
+		url: '/content/audio.md',
+		label: 'Embed audio',
+	},
+	{
+		url: '/content/video.md',
+		label: 'Embed video',
+	},
+	{
+		url: '/content/snippets.md',
+		label: 'Online snippets',
+	},
+	{
+		url: '/content/maps.md',
+		label: 'Maps',
 	},
 	{
 		url: '/content/tasklist.md',
@@ -47,7 +63,7 @@ export default class App extends Component {
 		super(props);
 		this.state = { content: '', activeKey: -1 };
 		this.select = this.select.bind(this);
-		this.select(7);
+		this.select(8);
 	}
 
 	select(i) {

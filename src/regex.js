@@ -24,7 +24,7 @@ export const vine = /vine.co\/v\/([\w\d]+)/i;
 export const youtube = /youtube\.com/i;
 
 // audio
-export const soundcloud = /(soundcloud.com)\/[a-zA-Z0-9-_]+\/[a-zA-Z0-9-_]+/i;
+export const soundcloud = /soundcloud.com\/([a-zA-Z0-9-_]+)\/([a-zA-Z0-9-_]+)/i;
 export const spotify = /spotify.com\/track\/[a-zA-Z0-9_]+/i;
 
 // maps

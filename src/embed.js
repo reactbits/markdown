@@ -1,3 +1,5 @@
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import classNames from 'classnames';
 import _ from 'lodash';
 import * as regex from './regex';
@@ -7,16 +9,33 @@ import parseuri from './parseuri';
 
 let rulemap = hashtrie.empty;
 
-// TODO use ReactDOMServer.renderToStaticMarkup
-function iframe(className, src, attrs = {}, style = {}, afterFrame = '') {
-	const allowFullScreen = 'webkitAllowFullScreen mozallowfullscreen allowFullScreen';
-	const noborder = 'frameBorder="0"';
-	const a = _.map(attrs, (v, k) => `${k}="${v}"`).join(' ');
-	const defaultStyle = { border: 0 };
-	const css = _.map({ ...defaultStyle, ...style }, (v, k) => `${k}:${v}`).join(';');
-	const frame = `<iframe src="${src}" ${noborder} ${allowFullScreen} ${a} style="${css}""></iframe>`; // eslint-disable-line
-	const classList = classNames(styles.embed_container, className);
-	return `<div class="${classList}">${frame}${afterFrame}</div>`;
+function queryString(params) {
+	return _.map(params, (v, k) => `${k}=${v}`).join('&');
+}
+
+// embedding with embed.js
+function embed(url) {
+	return `<div class="injection embedjs">${url}</div>`;
+}
+
+function iframe(props, containerProps = {}) {
+	const iframeProps = {
+		...props,
+		frameBorder: 0,
+		webkitAllowFullScreen: true,
+		mozallowfullscreen: true,
+		allowFullScreen: true,
+	};
+	delete iframeProps.className;
+	delete iframeProps.afterFrame;
+	const className = classNames(styles.embed_container, props.className);
+	const container = (
+		<div {...containerProps} className={className}>
+			<iframe {...iframeProps}></iframe>
+			{props.afterFrame || null}
+		</div>
+	);
+	return renderToStaticMarkup(container);
 }
 
 function canApplyRule(test, url) {
@@ -46,7 +65,7 @@ function rule(host, test, render) {
 	return value;
 }
 
-function rules(host, set) {
+function rules(host, set) { // eslint-disable-line
 	rulemap = rulemap.set(host, set);
 	rulemap = rulemap.set('www.' + host, set);
 }
@@ -55,41 +74,35 @@ const image = rule('', regex.imageExt, url => `<img src="${url}"/>`);
 
 // TODO support watch URLs
 rule('youtube.com', regex.youtube, url => {
-	return iframe(styles.youtube, url);
+	return iframe({ className: styles.youtube, src: url });
 });
 
 rule('vimeo.com', regex.vimeo, (url, match) => {
 	const src = `http://player.vimeo.com/video/${match[1]}`;
-	return iframe(styles.vimeo, src);
+	return iframe({ className: styles.vimeo, src });
 });
 
 rule('dailymotion.com', regex.dailymotion, (url, match) => {
 	const src = `http://www.dailymotion.com/embed/video/${match[1]}`;
-	return iframe(styles.daylymotion, src);
+	return iframe({ className: styles.daylymotion, src });
 });
 
 const vineScript = `<script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>`; // eslint-disable-line
 
 rule('vine.co', regex.vine, (url, match) => {
 	const src = `https://vine.co/v/${match[1]}/embed/simple`;
-	return iframe(styles.vine, src, {}, {}, vineScript);
+	return iframe({ className: styles.vine, src, afterFrame: vineScript });
 });
 
 rule('google.com', regex.googleMap, (url, match) => {
 	const src = `https://www.google.com/maps/embed?${match[1]}`;
-	return iframe(styles.google_map, src);
+	return iframe({ className: styles.google_map, src });
 });
 
 rule('instagram.com', regex.instagram, (url, match) => {
 	const src = `//instagram.com/p/${match[1]}/embed/`;
-	return iframe(styles.instagram, src, { scrolling: 'no' });
+	return iframe({ className: styles.instagram, src, scrolling: 'no' });
 });
-
-// embedding with embed.js
-function embed(url) {
-	// TODO invoke embed-js
-	console.log(url);
-}
 
 // image
 rule('flickr.com', regex.flickr, embed);
@@ -99,13 +112,28 @@ rule('liveleak.com', regex.liveleak, embed);
 rule('ted.com', regex.ted, embed);
 rule('ustream.tv', regex.ustream, embed);
 // audio
-rule('soundcloud.com', regex.soundcloud, embed);
+
+const soundcloudParams = queryString({
+	auto_play: 'false',
+	hide_related: 'false',
+	show_comments: 'true',
+	show_user: 'true',
+	show_reposts: 'false',
+	visual: 'false',
+	download: 'false',
+	color: 'f50000',
+	theme_color: 'f50000',
+});
+
+rule('soundcloud.com', regex.soundcloud, (url, match) => {
+	const src = `https://w.soundcloud.com/player/?url=soundcloud.com/${match[1]}/${match[2]}&` + soundcloudParams;
+	return iframe({ className: styles.soundcloud, src, scrolling: 'no' });
+});
+
 rule('spotify.com', regex.spotify, embed);
 // code
-rules('github.com', [
-	makeRule(regex.github, embed),
-	makeRule(regex.gist, embed),
-]);
+rule('github.com', regex.github, embed);
+rule('gist.github.com', regex.gist, embed);
 rule('codepen.io', regex.codepen, embed);
 rule('ideone.com', regex.ideone, embed);
 rule('jsbin.com', regex.jsbin, embed);

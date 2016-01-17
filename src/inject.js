@@ -5,6 +5,8 @@ import flowchart from 'flowchart.js';
 import railroad from './railroad';
 import katex from 'katex';
 // import katexStyles from '../bower_components/KaTeX/dist/katex.min.css'; // eslint-disable-line
+import { EmbedJS } from 'embed-js/src/embed.js'; // eslint-disable-line
+// import embedStyles from 'embed-js/src/embed.css'; // eslint-disable-line
 
 function inject(element) {
 	const $e = $(element);
@@ -32,6 +34,13 @@ function inject(element) {
 		} catch (e) {
 			console.log('katex failed:', e);
 		}
+		return;
+	}
+	if ($e.is('.embedjs')) {
+		const em = new window.EmbedJS({
+			element,
+		});
+		em.render();
 	}
 }
 

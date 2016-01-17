@@ -66,7 +66,11 @@ class Example extends Component {
 		* [x] daylymotion
 		* [ ] viddler
 		* [ ] blip.tv
+		* [ ] liveleak
+		* [ ] ted
+		* [ ] ustream
 	* [ ] Audio services
+		* [x] soundcloud
 	* [ ] Code snippets
 		* [ ] github gist
 		* [ ] codepen

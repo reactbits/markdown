@@ -8,8 +8,7 @@
     "lint": "eslint .",
     "babel": "babel src --out-dir lib",
     "build:demo": "webpack --config webpack.config.js",
-    "test": "npm run lint",
-    "deploy": "./deploy.sh"
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",

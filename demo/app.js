@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, Nav, NavItem } from 'react-bootstrap';
+import { Grid, Row, Col, Navbar, Nav, NavItem } from 'react-bootstrap';
 import Markdown from '../src';
 import qwest from 'qwest';
 
@@ -58,10 +58,28 @@ const contentLinks = [
 	},
 ];
 
+function sidebarMenu() {
+	return contentLinks.map((t, i) => {
+		const linkProps = {
+			key: i,
+			href: t.url,
+			eventKey: i,
+			style: {
+				margin: '4px',
+			},
+		};
+		return <NavItem {...linkProps}>{t.label}</NavItem>;
+	});
+}
+
 export default class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { content: '', activeKey: -1 };
+		this.state = {
+			content: '',
+			activeKey: -1,
+			mode: 'preview',
+		};
 		this.select = this.select.bind(this);
 		this.select(9);
 	}
@@ -74,27 +92,30 @@ export default class App extends Component {
 	}
 
 	render() {
-		const items = contentLinks.map((t, i) => {
-			const linkProps = {
-				key: i,
-				href: t.url,
-				eventKey: i,
-				style: {
-					margin: '4px',
-				},
-			};
-			return <NavItem {...linkProps}>{t.label}</NavItem>;
-		});
+		const toggleMode = () => {
+			const mode = this.state.mode === 'source' ? 'preview' : 'source';
+			this.setState({ mode });
+		};
+		const content = this.state.mode === 'source' ?
+			<pre>{this.state.content}</pre>
+			: <Markdown source={this.state.content} />;
 		return (
 			<Grid className="app">
 				<Row>
 					<Col md={3}>
 						<Nav bsStyle="pills" stacked activeKey={this.state.activeKey} onSelect={this.select}>
-							{items}
+							{sidebarMenu()}
 						</Nav>
 					</Col>
 					<Col md={9}>
-						<Markdown source={this.state.content} />
+						<Navbar>
+							<Nav>
+								<NavItem eventKey={1} href="#" onClick={toggleMode}>
+									{this.state.mode === 'source' ? 'Preview' : 'Source'}
+								</NavItem>
+							</Nav>
+						</Navbar>
+						{content}
 					</Col>
 				</Row>
 			</Grid>

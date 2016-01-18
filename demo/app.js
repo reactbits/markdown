@@ -5,55 +5,55 @@ import qwest from 'qwest';
 
 const contentLinks = [
 	{
-		url: '/content/all.md',
+		url: './content/all.md',
 		label: 'All in one',
 	},
 	{
-		url: '/content/code.md',
+		url: './content/code.md',
 		label: 'Code blocks',
 	},
 	{
-		url: '/content/diff.md',
+		url: './content/diff.md',
 		label: 'Diff blocks',
 	},
 	{
-		url: '/content/tex.md',
+		url: './content/tex.md',
 		label: 'TeX blocks',
 	},
 	{
-		url: '/content/sequence.md',
+		url: './content/sequence.md',
 		label: 'Sequence diagrams',
 	},
 	{
-		url: '/content/flow.md',
+		url: './content/flow.md',
 		label: 'Flow charts',
 	},
 	{
-		url: '/content/railroad.md',
+		url: './content/railroad.md',
 		label: 'Railroad diagrams',
 	},
 	{
-		url: '/content/image.md',
+		url: './content/image.md',
 		label: 'Embed image',
 	},
 	{
-		url: '/content/audio.md',
+		url: './content/audio.md',
 		label: 'Embed audio',
 	},
 	{
-		url: '/content/video.md',
+		url: './content/video.md',
 		label: 'Embed video',
 	},
 	{
-		url: '/content/snippets.md',
+		url: './content/snippets.md',
 		label: 'Online snippets',
 	},
 	{
-		url: '/content/maps.md',
+		url: './content/maps.md',
 		label: 'Maps',
 	},
 	{
-		url: '/content/tasklist.md',
+		url: './content/tasklist.md',
 		label: 'Task lists',
 	},
 ];

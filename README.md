@@ -46,6 +46,17 @@ class Example extends Component {
 }
 ```
 
+## Webpack build pipeline
+
+See [webpack.config.js](https://github.com/reactbits/markdown/blob/master/webpack.config.js) as an example how to integrate this package into your webpack pipeline, i.e.
+you need to use the following webpack plugins:
+* extract-text-webpack-plugin
+* style-loader
+* sass-loader
+* css-loader
+* postcss-loader
+* webpack-sources
+
 ## TODO
 * [x] Use markdown-it to render markdown content
 * [x] Use prismjs for syntax highlighting

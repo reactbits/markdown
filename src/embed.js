@@ -115,7 +115,15 @@ rule('instagram.com', regex.instagram, (url, match) => {
 });
 
 rule('flickr.com', regex.flickr, embed);
+// const src = `https://www.slideshare.net/slideshow/embed_code/key/zTckhjEe9nT5j8`;
 rule('slideshare.net', regex.slideshare, embed);
+
+// rule('imgur.com', regex.imgur, (url, match) => {
+// 	<blockquote class="imgur-embed-pub" lang="en" data-id="vCzVw2O">
+// 		<a href="http://imgur.com/vCzVw2O">How to tell when your cat is fully charged</a>
+// 	</blockquote>
+// 	<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+// });
 
 // audio
 
@@ -140,7 +148,13 @@ rule('spotify.com', regex.spotify, embed);
 // code
 rule('github.com', regex.github, embed);
 rule('gist.github.com', regex.gist, embed);
-rule('codepen.io', regex.codepen, embed);
+
+rule('codepen.io', regex.codepen, (url, match) => {
+	const slug = match[2];
+	const src = `https://codepen.io/${match[1]}/embed/preview/${slug}?height=300&amp;slug-hash=${slug}&amp;default-tab=result&amp;host=http%3A%2F%2Fcodepen.io`; // eslint-disable-line
+	return iframe({ className: styles.codepen, src });
+});
+
 rule('ideone.com', regex.ideone, embed);
 rule('jsbin.com', regex.jsbin, embed);
 rule('jsfiddle.net', regex.jsfiddle, embed);

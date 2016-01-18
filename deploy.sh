@@ -8,9 +8,9 @@ mkdir site;
 # compile demo app assets
 npm run build:demo
 mkdir -p site
-cp ./content ./site
-cp ./static ./site
-cp index.html ./site
+cp content site
+cp static site
+cp index.html site
 
 # go to the site directory and create a *new* git repo
 cd site

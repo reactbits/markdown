@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Navbar, Nav, NavItem } from 'react-bootstrap';
 import Markdown from '../src';
-import qwest from 'qwest';
 
 const contentLinks = [
 	{
@@ -86,8 +85,10 @@ export default class App extends Component {
 
 	select(i) {
 		const t = contentLinks[i];
-		qwest.get(t.url).then((xhr, content) => {
-			this.setState({ content, activeKey: i });
+		fetch(t.url).then(response => {
+			response.text().then(content => {
+				this.setState({ content, activeKey: i });
+			});
 		});
 	}
 

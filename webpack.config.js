@@ -13,7 +13,7 @@ module.exports = {
 		'./demo/index',
 	],
 	output: {
-		path: path.join(__dirname, 'demo'),
+		path: path.join(__dirname, 'static'),
 		filename: 'bundle.js',
 		publicPath: '/static/',
 	},

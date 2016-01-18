@@ -45,11 +45,11 @@ module.exports = {
 			},
 			{
 				test: /\.(scss|css)$/,
-				loader: ExtractTextPlugin.extract('style', cssLoader, 'postcss', 'sass?sourceMap'),
+				loader: ExtractTextPlugin.extract('style', [cssLoader, 'postcss', 'sass?sourceMap']),
 			},
 			{
 				test: /\.less$/,
-				loader: ExtractTextPlugin.extract('style', cssLoader, 'postcss', 'less?sourceMap'),
+				loader: ExtractTextPlugin.extract('style', [cssLoader, 'postcss', 'less?sourceMap']),
 			},
 			{
 				test: /\.(ttf|eot|svg|woff(2)?)$/,

@@ -81,7 +81,7 @@ export default class App extends Component {
 			mode: 'preview',
 		};
 		this.select = this.select.bind(this);
-		this.select(9);
+		this.select(0);
 	}
 
 	select(i) {

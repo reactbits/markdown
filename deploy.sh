@@ -5,14 +5,8 @@ set -e # exit with nonzero exit code if anything fails
 rm -rf site || exit 0;
 mkdir site;
 
-# compile demo app assets
-npm run build:demo
-pwd
-ls
-mkdir -p site
-cpx content site
-cpx static site
-cpx index.html site
+# build site
+bash makesite.sh
 
 # go to the site directory and create a *new* git repo
 cd site

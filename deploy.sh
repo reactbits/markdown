@@ -7,6 +7,7 @@ mkdir site;
 
 # compile demo app assets
 npm run build:demo
+pwd
 mkdir -p site
 cp content site
 cp static site

@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import classNames from 'classnames';
 import styles from 'github-markdown-css/github-markdown';
 
 const taskItemRegExp = /^\s*\[(\s|x?)\]\s+/i;
@@ -29,9 +30,7 @@ function getRenderFn(md, type) {
 	if (_.isFunction(fn)) {
 		return fn;
 	}
-	return (...args) => {
-		return md.renderer.renderToken.apply(md.renderer, args);
-	};
+	return (...args) => md.renderer.renderToken.apply(md.renderer, args);
 }
 
 function decorate(md, type, decoratorFn) {
@@ -49,8 +48,7 @@ export default function plugin(md) {
 		currentMatch = matchTaskItem(tokens, i + 1);
 		if (currentMatch) {
 			const token = tokens[i];
-			let className = attrGet(token, 'class');
-			className += ' ' + styles['task-list-item'];
+			const className = classNames(attrGet(token, 'class'), styles['task-list-item']);
 			token.attrSet('class', className);
 		}
 	});

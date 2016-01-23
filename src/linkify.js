@@ -22,7 +22,7 @@ export default function configureLinkifier(linkify) {
 
 				let re = rexprs[key];
 				if (!re) {
-					re = new RegExp('^([a-zA-Z0-9_]){1,15}(?!_)(?=$|' + self.re.src_ZPCc + ')');
+					re = new RegExp(`^([a-zA-Z0-9_]){1,15}(?!_)(?=$|${self.re.src_ZPCc})`);
 					rexprs[key] = re;
 				}
 
@@ -46,15 +46,7 @@ export default function configureLinkifier(linkify) {
 		});
 	}
 
-	register('@', 'mention', (url) => {
-		return linkTo.user + url.replace(/^@/, '');
-	});
-
-	register('issue ', 'issue', (url) => {
-		return linkTo.issue + url.replace(/^issue /, '');
-	});
-
-	register('#', 'hashtag', (url) => {
-		return linkTo.hashtag + url.replace(/^#/, '');
-	});
+	register('@', 'mention', url => linkTo.user + url.replace(/^@/, ''));
+	register('issue ', 'issue', url => linkTo.issue + url.replace(/^issue /, ''));
+	register('#', 'hashtag', url => linkTo.hashtag + url.replace(/^#/, ''));
 }

@@ -28,9 +28,7 @@ md.use(footnotes);
 md.use(embed);
 md.use(tasklist);
 
-md.renderer.rules.emoji = (token, idx) => {
-	return twemoji.parse(token[idx].content);
-};
+md.renderer.rules.emoji = (tokens, idx) => twemoji.parse(tokens[idx].content);
 
 // Renders given markdown text to HTML.
 export function render(text) {

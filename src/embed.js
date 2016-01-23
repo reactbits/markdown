@@ -60,22 +60,22 @@ function rule(host, test, render) {
 	const value = makeRule(test, render);
 	if (host) {
 		rulemap = rulemap.set(host, value);
-		rulemap = rulemap.set('www.' + host, value);
+		rulemap = rulemap.set(`www.${host}`, value);
 	}
 	return value;
 }
 
 function rules(host, set) { // eslint-disable-line
 	rulemap = rulemap.set(host, set);
-	rulemap = rulemap.set('www.' + host, set);
+	rulemap = rulemap.set(`www.${host}`, set);
 }
 
 const image = rule('', regex.imageExt, url => `<img src="${url}"/>`);
 
 // TODO support watch URLs
-rule('youtube.com', regex.youtube, url => {
-	return iframe({ className: styles.youtube, src: url });
-});
+rule('youtube.com', regex.youtube, url =>
+	iframe({ className: styles.youtube, src: url })
+);
 
 rule('vimeo.com', regex.vimeo, (url, match) => {
 	const src = `http://player.vimeo.com/video/${match[1]}`;
@@ -140,7 +140,8 @@ const soundcloudParams = queryString({
 });
 
 rule('soundcloud.com', regex.soundcloud, (url, match) => {
-	const src = `https://w.soundcloud.com/player/?url=soundcloud.com/${match[1]}/${match[2]}&` + soundcloudParams;
+	const player = `https://w.soundcloud.com/player/?url=soundcloud.com/${match[1]}/${match[2]}&`;
+	const src = `${player}${soundcloudParams}`;
 	return iframe({ className: styles.soundcloud, src, scrolling: 'no' });
 });
 

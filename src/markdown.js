@@ -10,9 +10,9 @@ export class Markdown extends Component {
 		if (source) {
 			content = <Content source={source}/>;
 		} else {
-			content = React.Children.map(this.props.children, child => {
-				return typeof child === 'string' ? <Content source={child}/> : child;
-			});
+			content = React.Children.map(this.props.children, child =>
+				typeof child === 'string' ? <Content source={child}/> : child
+			);
 		}
 		return (
 			<div className={className} style={style}>{content}</div>

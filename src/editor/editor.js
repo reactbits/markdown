@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 import SplitPane from 'react-split-pane';
 import Ace from 'react-ace';
-import Markdown from './markdown';
+import Markdown from '../markdown';
 import style from './style';
-import splitStyles from './split'; // eslint-disable-line
 
 import 'brace/mode/markdown';
 import 'brace/theme/github';
 
+// TODO customizable tabs e.g. localization
 // TODO textarea mode without rich editor
 // TODO fix split mode
 // TODO sync scrollbars for editor and viewer
@@ -22,7 +22,7 @@ export class MarkdownEditor extends Component {
 	}
 
 	renderAce() {
-		const { height } = this.props.style || {};
+		const { width, height } = this.props.style || {};
 		const onChange = value => {
 			this.setState({ value });
 		};
@@ -31,10 +31,9 @@ export class MarkdownEditor extends Component {
 			theme: 'github',
 			value: this.state.value,
 			onChange,
+			width: width || '100%',
+			height: height || '100%',
 		};
-		if (height) {
-			aceProps.height = height;
-		}
 		return <Ace {...aceProps}/>;
 	}
 
@@ -42,7 +41,7 @@ export class MarkdownEditor extends Component {
 		return (
 			<Tabs>
 				<TabList>
-					<Tab>Source</Tab>
+					<Tab>Edit</Tab>
 					<Tab>Preview</Tab>
 				</TabList>
 				<TabPanel>{this.renderAce()}</TabPanel>
@@ -64,9 +63,10 @@ export class MarkdownEditor extends Component {
 
 	render() {
 		const props = this.props;
+		const { mode } = props;
 		return (
 			<div className={style.markdown_editor} style={props.style}>
-				{this.renderTabs()}
+				{ mode === 'split' ? this.renderSplit() : this.renderTabs() }
 			</div>
 		);
 	}

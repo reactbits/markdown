@@ -85,6 +85,7 @@
     "raw-loader": "^0.5.1",
     "react-bootstrap": "^0.28.2",
     "react-dom": "^0.14.6",
+    "react-sidebar": "^2.1.1",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.12",

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Navbar, Nav, NavItem } from 'react-bootstrap';
-import Markdown from '../src';
+import { Markdown, MarkdownEditor } from '../src';
 
 const contentLinks = [
 	{
@@ -92,20 +92,30 @@ export default class App extends Component {
 		});
 	}
 
+	renderContent() {
+		if (this.state.mode === 'source') {
+			const props = {
+				value: this.state.content,
+				style: {
+					height: '600px',
+				},
+			};
+			return <MarkdownEditor {...props}/>;
+		}
+		return <Markdown source={this.state.content} />;
+	}
+
 	render() {
 		const toggleMode = () => {
 			const mode = this.state.mode === 'source' ? 'preview' : 'source';
 			this.setState({ mode });
 		};
-		const content = this.state.mode === 'source' ?
-			<pre>{this.state.content}</pre>
-			: <Markdown source={this.state.content} />;
 		return (
 			<Grid className="app">
 				<Row>
 					<Col md={3}>
 						<Nav bsStyle="pills" stacked activeKey={this.state.activeKey} onSelect={this.select}>
-							{sidebarMenu()}
+						{sidebarMenu()}
 						</Nav>
 					</Col>
 					<Col md={9}>
@@ -116,7 +126,7 @@ export default class App extends Component {
 								</NavItem>
 							</Nav>
 						</Navbar>
-						{content}
+						{this.renderContent()}
 					</Col>
 				</Row>
 			</Grid>

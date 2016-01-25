@@ -3,6 +3,7 @@ import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 import SplitPane from 'react-split-pane';
 import Ace from 'react-ace';
 import Markdown from '../markdown';
+import Toolbar from './toolbar';
 import style from './style';
 
 import 'brace/mode/markdown';
@@ -19,6 +20,10 @@ export class MarkdownEditor extends Component {
 		this.state = {
 			value: props.value || '',
 		};
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState({ value: nextProps.value });
 	}
 
 	renderAce() {
@@ -66,6 +71,7 @@ export class MarkdownEditor extends Component {
 		const { mode } = props;
 		return (
 			<div className={style.markdown_editor} style={props.style}>
+				<Toolbar/>
 				{ mode === 'split' ? this.renderSplit() : this.renderTabs() }
 			</div>
 		);

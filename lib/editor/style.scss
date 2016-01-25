@@ -3,3 +3,19 @@
 .markdown_editor {
 	min-height: 300px;
 }
+
+.markdown_editor .toolbar i {
+	cursor: pointer;
+	display: inline-block;
+	margin: 2px;
+	padding: 4px;
+	min-width: 20px;
+	min-height: 20px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 25%;
+}
+
+.markdown_editor .toolbar i:hover {
+	background-color: lightgray;
+}

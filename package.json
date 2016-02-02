@@ -50,7 +50,7 @@
     "react-diffview": "^0.1.6",
     "react-dom": "^0.14.7",
     "react-split-pane": "^0.1.23",
-    "react-tabs": "^0.5.2",
+    "react-tabs": "^0.5.3",
     "strip-indent": "^1.0.1",
     "twemoji": "^1.4.1"
   },

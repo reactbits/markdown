@@ -42,7 +42,7 @@
     "markdown-it-footnote": "^2.0.0",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "prismjs-package": "^0.6.8",
+    "prismjs-package": "^0.6.9",
     "railroad-diagrams": "^1.0.0",
     "raphael": "^2.1.4",
     "react": "^0.14.7",

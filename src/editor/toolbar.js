@@ -1,12 +1,23 @@
 import React from 'react';
 import classNames from 'classnames';
 import style from './style';
+import hint from '../hint';
 import _ from 'lodash';
 
 function Button(props) {
 	const className = classNames(props.icon ? props.icon : null);
-	const attrs = _.pick(props, 'title', 'onClick');
-	return <i className={className} {...attrs}>{props.text}</i>;
+	const attrs = _.pick(props);
+	let btnClass = '';
+	const btnAttrs = _.pick('onClick');
+	if (props.title) {
+		btnClass = hint();
+		btnAttrs['data-hint'] = props.title;
+	}
+	return (
+		<span className={btnClass} {...btnAttrs}>
+			<i className={className} {...attrs}>{props.text}</i>
+		</span>
+	);
 }
 
 export default function Toolbar(props) {

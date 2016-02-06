@@ -4,7 +4,7 @@
 	min-height: 300px;
 }
 
-.markdown_editor .toolbar i {
+.markdown_editor .toolbar span {
 	cursor: pointer;
 	display: inline-block;
 	margin: 2px;
@@ -16,6 +16,6 @@
 	border-radius: 25%;
 }
 
-.markdown_editor .toolbar i:hover {
+.markdown_editor .toolbar span:hover {
 	background-color: lightgray;
 }

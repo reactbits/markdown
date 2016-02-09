@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/reactbits/markdown#readme",
   "dependencies": {
+    "brace": "^0.7.0",
     "classnames": "^2.2.3",
     "embed-js": "^3.7.4",
     "eve": "^0.5.0",

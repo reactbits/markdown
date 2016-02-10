@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import style from './style';
-import hint from '../hint';
+import { hint } from 'css-effects';
 import _ from 'lodash';
 
 function Button(props) {

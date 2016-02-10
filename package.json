@@ -93,7 +93,7 @@
     "style-loader": "^0.13.0",
     "webpack": "^1.12.13",
     "webpack-dev-middleware": "^1.5.1",
-    "webpack-hot-middleware": "^2.6.3",
+    "webpack-hot-middleware": "^2.7.0",
     "webpack-sources": "^0.1.1"
   }
 }

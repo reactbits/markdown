@@ -83,7 +83,7 @@
     "less-loader": "^2.2.2",
     "morgan": "^1.6.1",
     "node-sass": "^3.4.2",
-    "postcss-loader": "^0.8.0",
+    "postcss-loader": "^0.8.1",
     "raw-loader": "^0.5.1",
     "react-bootstrap": "^0.28.3",
     "react-dom": "^0.14.6",

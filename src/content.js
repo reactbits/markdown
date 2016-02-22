@@ -22,6 +22,7 @@ export default class Content extends Component {
 	render() {
 		const { source } = this.props;
 		const html = render(stripIndent(source));
-		return <span className={styles['markdown-body']} dangerouslySetInnerHTML={{ __html: html }}/>;
+		const className = styles['markdown-body'];
+		return <span className={className} dangerouslySetInnerHTML={{ __html: html }} />;
 	}
 }

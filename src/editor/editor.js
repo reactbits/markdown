@@ -39,7 +39,7 @@ export class MarkdownEditor extends Component {
 			width: width || '100%',
 			height: height || '100%',
 		};
-		return <Ace {...aceProps}/>;
+		return <Ace {...aceProps} />;
 	}
 
 	renderTabs() {
@@ -51,7 +51,7 @@ export class MarkdownEditor extends Component {
 				</TabList>
 				<TabPanel>{this.renderAce()}</TabPanel>
 				<TabPanel>
-					<Markdown source={this.state.value}/>
+					<Markdown source={this.state.value} />
 				</TabPanel>
 			</Tabs>
 		);
@@ -61,7 +61,7 @@ export class MarkdownEditor extends Component {
 		return (
 			<SplitPane split="vertical">
 			{this.renderAce()}
-				<Markdown source={this.state.value}/>
+				<Markdown source={this.state.value} />
 			</SplitPane>
 		);
 	}
@@ -71,7 +71,7 @@ export class MarkdownEditor extends Component {
 		const { mode } = props;
 		return (
 			<div className={style.markdown_editor} style={props.style}>
-				<Toolbar/>
+				<Toolbar />
 				{ mode === 'split' ? this.renderSplit() : this.renderTabs() }
 			</div>
 		);

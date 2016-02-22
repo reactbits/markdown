@@ -33,7 +33,7 @@ export default class App extends Component {
 					height: '600px',
 				},
 			};
-			return <MarkdownEditor {...props}/>;
+			return <MarkdownEditor {...props} />;
 		}
 		return <Markdown source={this.state.content} />;
 	}

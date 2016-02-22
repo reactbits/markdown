@@ -31,7 +31,7 @@ export function render(code, language) {
 		return external(code, externalLang);
 	}
 	if (lang.match(/^diff?/i)) {
-		const view = <DiffView source={code}/>;
+		const view = <DiffView source={code} />;
 		return renderToString(view);
 	}
 	return highlight(code, language);

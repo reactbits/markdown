@@ -53,7 +53,7 @@ export default function plugin(md) {
 		}
 	});
 
-	decorate(md, 'list_item_close', () => currentMatch = null);
+	decorate(md, 'list_item_close', () => { currentMatch = null; });
 
 	const renderInline = md.renderer.renderInline.bind(md.renderer);
 	md.renderer.renderInline = function (tokens, options, env) { // eslint-disable-line

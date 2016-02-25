@@ -14,9 +14,7 @@ app.use(cors());
 
 app.use(require('webpack-dev-middleware')(compiler, {
 	publicPath: config.output.publicPath,
-	stats: {
-		colors: true,
-	},
+	stats: 'errors-only',
 }));
 
 app.use(require('webpack-hot-middleware')(compiler));

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
+import React, { Component, PropTypes } from 'react';
 import SplitPane from 'react-split-pane';
 import Ace from 'react-ace';
 import Markdown from '../markdown';
 import Toolbar from './toolbar';
-import style from './style';
+import styles from './style';
+import _ from 'lodash';
 
 import 'brace/mode/markdown';
 import 'brace/theme/github';
@@ -15,9 +15,20 @@ import 'brace/theme/github';
 // TODO sync scrollbars for editor and viewer
 
 export class MarkdownEditor extends Component {
+	static propTypes = {
+		value: PropTypes.string,
+		onSave: PropTypes.func,
+	};
+
+	static defaultProps = {
+		value: '',
+		onSave: _.noop,
+	};
+
 	constructor(props) {
 		super(props);
 		this.state = {
+			mode: 'edit',
 			value: props.value || '',
 		};
 	}
@@ -42,37 +53,45 @@ export class MarkdownEditor extends Component {
 		return <Ace {...aceProps} />;
 	}
 
-	renderTabs() {
+	renderNormalView() {
+		if (this.state.mode === 'edit') {
+			return	this.renderAce();
+		}
 		return (
-			<Tabs>
-				<TabList>
-					<Tab>Edit</Tab>
-					<Tab>Preview</Tab>
-				</TabList>
-				<TabPanel>{this.renderAce()}</TabPanel>
-				<TabPanel>
-					<Markdown source={this.state.value} />
-				</TabPanel>
-			</Tabs>
+			<Markdown source={this.state.value} />
 		);
 	}
 
-	renderSplit() {
+	renderSplitView() {
 		return (
 			<SplitPane split="vertical">
-			{this.renderAce()}
+				{this.renderAce()}
 				<Markdown source={this.state.value} />
 			</SplitPane>
 		);
 	}
 
 	render() {
-		const props = this.props;
-		const { mode } = props;
+		const { mode } = this.state;
+		const { style, splitView } = this.props;
+		const onAction = type => {
+			// TODO implement formatting actions
+			switch (type) {
+			case 'mode':
+				this.setState({ mode: mode === 'edit' ? 'preview' : 'edit' });
+				break;
+			case 'save':
+				(this.props.onSave || _.noop)();
+				break;
+			default:
+				console.log(`unhandled action ${type}`);
+				break;
+			}
+		};
 		return (
-			<div className={style.markdown_editor} style={props.style}>
-				<Toolbar />
-				{ mode === 'split' ? this.renderSplit() : this.renderTabs() }
+			<div className={styles.markdown_editor} style={style}>
+				<Toolbar mode={mode} onAction={onAction} />
+				{ splitView ? this.renderSplitView() : this.renderNormalView() }
 			</div>
 		);
 	}

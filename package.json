@@ -72,7 +72,7 @@
     "css-raw-loader": "^0.1.1",
     "eslint": "^2.3.0",
     "eslint-config-airbnb": "^6.1.0",
-    "eslint-plugin-react": "^4.1.0",
+    "eslint-plugin-react": "^4.2.1",
     "exports-loader": "^0.6.3",
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",

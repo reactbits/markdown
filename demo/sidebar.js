@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Nav, NavItem } from 'react-bootstrap';
 import Sidebar from 'react-sidebar';
 
@@ -71,19 +71,16 @@ function menuItems() {
 	});
 }
 
-export default class AppSidebar extends Component {
-	render() {
-		const props = this.props;
-		const onSelect = i => props.onSelect(contentLinks[i], i);
-		const content = (
-			<Nav bsStyle="pills" stacked activeKey={props.activeKey} onSelect={onSelect}>
-			{menuItems()}
-			</Nav>
-		);
-		return (
-			<Sidebar sidebar={content} docked>
-				{this.props.children}
-			</Sidebar>
-		);
-	}
+export default function AppSidebar(props) {
+	const onSelect = i => props.onSelect(contentLinks[i], i);
+	const content = (
+		<Nav bsStyle="pills" stacked activeKey={props.activeKey} onSelect={onSelect}>
+		{menuItems()}
+		</Nav>
+	);
+	return (
+		<Sidebar sidebar={content} docked>
+			{this.props.children}
+		</Sidebar>
+	);
 }

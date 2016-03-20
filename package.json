@@ -27,7 +27,7 @@
   "dependencies": {
     "brace": "^0.7.0",
     "classnames": "^2.2.3",
-    "css-effects": "^0.1.1",
+    "css-effects": "^0.1.2",
     "embed-js": "^4.0.0",
     "eve": "^0.5.0",
     "flowchart.js": "^1.6.2",

@@ -80,7 +80,7 @@ export default function AppSidebar(props) {
 	);
 	return (
 		<Sidebar sidebar={content} docked>
-			{this.props.children}
+			{props.children}
 		</Sidebar>
 	);
 }

@@ -11,7 +11,7 @@ export default class App extends Component {
 		this.state = {
 			content: '',
 			activeKey: -1,
-			mode: 'source',
+			mode: 'preview',
 		};
 		this.select = this.select.bind(this);
 		this.select(contentLinks[0], 0);

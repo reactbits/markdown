@@ -57,7 +57,7 @@
     "twemoji": "^2.0.2"
   },
   "devDependencies": {
-    "react-devpack": "^0.1.10",
+    "react-devpack": "^0.1.11",
     "react-bootstrap": "^0.28.5",
     "react-dom": "^0.14.7",
     "react-sidebar": "^2.1.1"

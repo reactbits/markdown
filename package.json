@@ -50,7 +50,7 @@
     "react": "^0.14.8",
     "react-ace": "^3.2.0",
     "react-diffview": "^0.1.16",
-    "react-dom": "^0.14.8",
+    "react-dom": "^15.0.0",
     "react-split-pane": "^0.1.30",
     "react-tabs": "^0.5.3",
     "strip-indent": "^1.0.1",

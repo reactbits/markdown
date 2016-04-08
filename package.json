@@ -1,6 +1,6 @@
 {
   "name": "react-markdown2",
-  "version": "0.10.28",
+  "version": "0.10.29",
   "description": "Yet another react component to render markdown.",
   "main": "lib/index.js",
   "scripts": {

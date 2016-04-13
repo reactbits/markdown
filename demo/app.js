@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Markdown, MarkdownEditor } from '../src';
-import Sidebar from './sidebar';
-import { contentLinks } from './sidebar';
+import Sidebar, { contentLinks } from './sidebar';
 import style from './style';
 
 export default class App extends Component {

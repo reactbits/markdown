@@ -35,7 +35,7 @@
     "hashtrie": "^1.0.0",
     "jquery": "^2.2.3",
     "js-sequence-diagrams": "git://github.com/sergeyt/js-sequence-diagrams.git#modularity",
-    "katex": "^0.5.1",
+    "katex": "^0.6.0",
     "linkify-it": "^1.2.0",
     "lodash": "^4.11.1",
     "markdown-it": "^6.0.1",

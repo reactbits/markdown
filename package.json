@@ -48,10 +48,10 @@
     "railroad-diagrams": "^1.0.0",
     "raphael": "^2.2.0",
     "react": "^15.0.1",
-    "react-ace": "^3.3.0",
+    "react-ace": "^3.4.0",
     "react-diffview": "^0.1.19",
     "react-dom": "^15.0.1",
-    "react-split-pane": "^0.1.30",
+    "react-split-pane": "^0.1.36",
     "react-tabs": "^0.5.3",
     "strip-indent": "^1.0.1",
     "twemoji": "^2.0.5"

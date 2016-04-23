@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "react-devpack": "^0.1.22",
-    "react-bootstrap": "^0.29.1",
+    "react-bootstrap": "^0.29.2",
     "react-sidebar": "^2.1.1"
   }
 }

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import classNames from 'classnames';
-import styles from 'github-markdown-css/github-markdown';
+import styles from 'github-markdown-css/github-markdown.css';
 
 const taskItemRegExp = /^\s*\[(\s|x?)\]\s+/i;
 

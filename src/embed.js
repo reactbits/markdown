@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import classNames from 'classnames';
 import _ from 'lodash';
 import * as regex from './regex';
-import styles from './style';
+import styles from './style.scss';
 import hashtrie from 'hashtrie';
 import parseuri from './parseuri';
 

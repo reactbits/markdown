@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Markdown, MarkdownEditor } from '../src';
 import Sidebar, { contentLinks } from './sidebar';
-import style from './style';
+import style from './style.scss';
 
 export default class App extends Component {
 	constructor(props) {

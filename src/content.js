@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import render from './render';
 import stripIndent from 'strip-indent';
 import renderInjections from './inject';
-import styles from 'github-markdown-css/github-markdown';
+import styles from 'github-markdown-css/github-markdown.css';
 
 export default class Content extends Component {
 	componentDidMount() {

@@ -3,7 +3,7 @@ import SplitPane from 'react-split-pane';
 import Ace from 'react-ace';
 import Markdown from '../markdown';
 import Toolbar from './toolbar';
-import styles from './style';
+import styles from './style.scss';
 import _ from 'lodash';
 
 import 'brace/mode/markdown';
@@ -91,7 +91,7 @@ export class MarkdownEditor extends Component {
 		return (
 			<div className={styles.markdown_editor} style={style}>
 				<Toolbar mode={mode} onAction={onAction} />
-				{ splitView ? this.renderSplitView() : this.renderNormalView() }
+				{splitView ? this.renderSplitView() : this.renderNormalView()}
 			</div>
 		);
 	}

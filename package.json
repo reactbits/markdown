@@ -51,7 +51,7 @@
     "react-ace": "^3.4.1",
     "react-diffview": "^0.1.21",
     "react-dom": "^15.0.2",
-    "react-split-pane": "^0.1.38",
+    "react-split-pane": "^0.1.40",
     "react-tabs": "^0.5.3",
     "strip-indent": "^2.0.0",
     "twemoji": "^2.0.5"

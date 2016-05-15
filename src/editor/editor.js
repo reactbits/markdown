@@ -18,11 +18,13 @@ export class MarkdownEditor extends Component {
 	static propTypes = {
 		value: PropTypes.string,
 		onSave: PropTypes.func,
+		onChange: PropTypes.func,
 	};
 
 	static defaultProps = {
 		value: '',
 		onSave: _.noop,
+		onChange: _.noop,
 	};
 
 	constructor(props) {
@@ -40,6 +42,7 @@ export class MarkdownEditor extends Component {
 	renderAce() {
 		const { width, height } = this.props.style || {};
 		const onChange = value => {
+			(this.props.onChange || _.noop)(value);
 			this.setState({ value });
 		};
 		const aceProps = {
@@ -81,7 +84,7 @@ export class MarkdownEditor extends Component {
 				this.setState({ mode: mode === 'edit' ? 'preview' : 'edit' });
 				break;
 			case 'save':
-				(this.props.onSave || _.noop)();
+				(this.props.onSave || _.noop)(this.state.value);
 				break;
 			default:
 				console.log(`unhandled action ${type}`);

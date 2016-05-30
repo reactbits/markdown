@@ -36,7 +36,7 @@
     "jquery": "^2.2.4",
     "js-sequence-diagrams": "git://github.com/sergeyt/js-sequence-diagrams.git#modularity",
     "katex": "^0.6.0",
-    "linkify-it": "^1.2.1",
+    "linkify-it": "^1.2.2",
     "lodash": "^4.13.1",
     "markdown-it": "^6.0.2",
     "markdown-it-deflist": "^2.0.1",

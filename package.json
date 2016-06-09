@@ -33,7 +33,7 @@
     "flowchart.js": "^1.6.3",
     "github-markdown-css": "^2.3.0",
     "hashtrie": "^1.0.0",
-    "jquery": "^2.2.4",
+    "jquery": "^3.0.0",
     "js-sequence-diagrams": "git://github.com/sergeyt/js-sequence-diagrams.git#modularity",
     "katex": "^0.6.0",
     "linkify-it": "^1.2.2",

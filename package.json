@@ -28,7 +28,7 @@
     "brace": "^0.8.0",
     "classnames": "^2.2.5",
     "css-effects": "^0.1.3",
-    "embed-js": "^4.1.2",
+    "embed-js": "^4.1.3",
     "eve": "^0.5.0",
     "flowchart.js": "^1.6.3",
     "github-markdown-css": "^2.3.0",
@@ -38,18 +38,18 @@
     "katex": "^0.6.0",
     "linkify-it": "^1.2.4",
     "lodash": "^4.13.1",
-    "markdown-it": "^6.0.5",
+    "markdown-it": "^6.1.0",
     "markdown-it-deflist": "^2.0.1",
     "markdown-it-emoji": "^1.2.0",
     "markdown-it-footnote": "^2.0.0",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "prismjs-package": "^0.7.9",
+    "prismjs-package": "^0.7.10",
     "railroad-diagrams": "^1.0.0",
     "raphael": "^2.2.0",
     "react": "^15.1.0",
     "react-ace": "^3.4.1",
-    "react-diffview": "^0.1.24",
+    "react-diffview": "^0.1.25",
     "react-dom": "^15.1.0",
     "react-split-pane": "^0.1.42",
     "react-tabs": "^0.5.5",
@@ -57,8 +57,8 @@
     "twemoji": "^2.0.5"
   },
   "devDependencies": {
-    "react-devpack": "^0.1.34",
-    "react-bootstrap": "^0.29.4",
+    "react-devpack": "^0.1.37",
+    "react-bootstrap": "^0.29.5",
     "react-sidebar": "^2.1.2"
   }
 }

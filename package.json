@@ -46,7 +46,7 @@
     "markdown-it-sup": "^1.0.0",
     "prismjs-package": "^0.7.11",
     "railroad-diagrams": "^1.0.0",
-    "raphael": "^2.2.0",
+    "raphael": "^2.2.1",
     "react": "^15.2.0",
     "react-ace": "^3.4.1",
     "react-diffview": "^0.1.26",
@@ -57,8 +57,9 @@
     "twemoji": "^2.0.5"
   },
   "devDependencies": {
-    "react-devpack": "^0.1.41",
+    "eslint": "^3.0.0",
     "react-bootstrap": "^0.29.5",
+    "react-devpack": "^0.1.43",
     "react-sidebar": "^2.1.4"
   }
 }

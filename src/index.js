@@ -1,7 +1,4 @@
-import Markdown from './markdown';
-import MarkdownEditor from './editor';
-import render from './render';
-import { linkTo } from './linkify';
-
-export { Markdown, MarkdownEditor, render, linkTo };
-export default Markdown;
+export { default as Markdown } from './markdown';
+export { default as MarkdownEditor } from './editor';
+export { default as render } from './render';
+export { linkTo } from './linkify';

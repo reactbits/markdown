@@ -2,8 +2,8 @@
 import sequenceDiagram from 'js-sequence-diagrams';
 import flowchart from 'flowchart.js';
 /*eslint-enable*/
-import railroad from './railroad';
 import katex from 'katex';
+import railroad from './railroad';
 // import katexStyles from '../bower_components/KaTeX/dist/katex.min.css'; // eslint-disable-line
 import { EmbedJS } from 'embed-js/src/embed.js'; // eslint-disable-line
 // import embedStyles from 'embed-js/src/embed.css'; // eslint-disable-line

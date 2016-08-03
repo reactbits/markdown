@@ -1,3 +1,1 @@
-import MarkdownEditor from './editor';
-export { MarkdownEditor };
-export default MarkdownEditor;
+export { default } from './editor';

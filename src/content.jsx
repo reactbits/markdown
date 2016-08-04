@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import render from './render';
 import stripIndent from 'strip-indent';
-import renderInjections from './inject';
 import styles from 'github-markdown-css/github-markdown.css';
+import render from './render';
+import renderInjections from './inject';
 
 export default class Content extends Component {
 	componentDidMount() {
@@ -15,7 +15,7 @@ export default class Content extends Component {
 	}
 
 	replaceBlocks() {
-		const root = $(ReactDOM.findDOMNode(this));
+		const root = $(ReactDOM.findDOMNode(this)); // eslint-disable-line
 		renderInjections(root.find('.injection'));
 	}
 

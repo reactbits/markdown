@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Content from './content';
 
-export class Markdown extends Component {
+export default class Markdown extends Component {
 	render() {
 		const { source } = this.props;
 		const className = this.props.className || 'markdown';
@@ -22,5 +22,3 @@ export class Markdown extends Component {
 		);
 	}
 }
-
-export default Markdown;

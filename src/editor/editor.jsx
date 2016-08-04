@@ -1,13 +1,12 @@
+import _ from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import SplitPane from 'react-split-pane';
 import Ace from 'react-ace';
+import 'brace/mode/markdown';
+import 'brace/theme/github';
 import Markdown from '../markdown';
 import Toolbar from './toolbar';
 import styles from './style.scss';
-import _ from 'lodash';
-
-import 'brace/mode/markdown';
-import 'brace/theme/github';
 
 // TODO customizable tabs e.g. localization
 // TODO textarea mode without rich editor

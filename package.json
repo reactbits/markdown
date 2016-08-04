@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "start": "node devserver.js",
-    "lint": "eslint .",
+    "lint": "eslint --ext .js,.jsx .",
     "babel": "babel src --out-dir lib",
     "build:demo": "webpack --config webpack.config.js",
     "test": "npm run lint"

@@ -1,8 +1,8 @@
+import _ from 'lodash';
 import React from 'react';
 import classNames from 'classnames';
-import style from './style.scss';
 import { hint } from 'css-effects';
-import _ from 'lodash';
+import style from './style.scss';
 
 function Button(props) {
 	const className = classNames(props.icon ? props.icon : null);

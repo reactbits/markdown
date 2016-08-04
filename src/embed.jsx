@@ -1,10 +1,10 @@
+import _ from 'lodash';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import classNames from 'classnames';
-import _ from 'lodash';
+import hashtrie from 'hashtrie';
 import * as regex from './regex';
 import styles from './style.scss';
-import hashtrie from 'hashtrie';
 import parseuri from './parseuri';
 
 let rulemap = hashtrie.empty;
@@ -31,7 +31,7 @@ function iframe(props, containerProps = {}) {
 	const className = classNames(styles.embed_container, props.className);
 	const container = (
 		<div {...containerProps} className={className}>
-			<iframe {...iframeProps}></iframe>
+			<iframe {...iframeProps} />
 			{props.afterFrame || null}
 		</div>
 	);

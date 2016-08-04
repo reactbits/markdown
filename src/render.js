@@ -31,8 +31,6 @@ md.use(tasklist);
 md.renderer.rules.emoji = (tokens, idx) => twemoji.parse(tokens[idx].content);
 
 // Renders given markdown text to HTML.
-export function render(text) {
+export default function render(text) {
 	return md.render(text || '');
 }
-
-export default render;

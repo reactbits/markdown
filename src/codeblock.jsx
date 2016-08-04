@@ -4,6 +4,7 @@ import highlight from 'prismjs-package';
 // TODO do that in prismjs-package
 import style from 'prismjs-package/themes/prism.css'; // eslint-disable-line
 import DiffView from 'react-diffview';
+import { unescapeAll } from 'markdown-it/lib/common/utils';
 
 const externalLangs = {
 	seq: 'sequence',
@@ -36,8 +37,6 @@ export function render(code, language) {
 	}
 	return highlight(code, language);
 }
-
-import { unescapeAll } from 'markdown-it/lib/common/utils';
 
 /* eslint-disable no-param-reassign */
 export default function plugin(md) {

@@ -30,7 +30,7 @@ function getRenderFn(md, type) {
 	if (_.isFunction(fn)) {
 		return fn;
 	}
-	return (...args) => md.renderer.renderToken.apply(md.renderer, args);
+	return (...args) => md.renderer.renderToken(...args);
 }
 
 function decorate(md, type, decoratorFn) {

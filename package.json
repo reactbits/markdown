@@ -37,7 +37,7 @@
     "js-sequence-diagrams": "git://github.com/sergeyt/js-sequence-diagrams.git#modularity",
     "katex": "^0.6.0",
     "linkify-it": "^2.0.0",
-    "lodash": "^4.14.1",
+    "lodash": "^4.15.0",
     "markdown-it": "^7.0.0",
     "markdown-it-deflist": "^2.0.1",
     "markdown-it-emoji": "^1.2.0",
@@ -57,9 +57,9 @@
     "twemoji": "^2.1.0"
   },
   "devDependencies": {
-    "eslint": "^3.2.2",
+    "eslint": "^3.3.0",
     "react-bootstrap": "^0.30.2",
-    "react-devpack": "^0.1.51",
+    "react-devpack": "^0.1.52",
     "react-sidebar": "^2.2.1"
   }
 }

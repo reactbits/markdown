@@ -54,12 +54,12 @@
     "react-split-pane": "^0.1.44",
     "react-tabs": "^0.7.0",
     "strip-indent": "^2.0.0",
-    "twemoji": "^2.1.0"
+    "twemoji": "^2.1.4"
   },
   "devDependencies": {
-    "eslint": "^3.3.1",
-    "react-bootstrap": "^0.30.2",
-    "react-devpack": "^0.1.53",
+    "eslint": "^3.4.0",
+    "react-bootstrap": "^0.30.3",
+    "react-devpack": "^0.1.54",
     "react-sidebar": "^2.2.1"
   }
 }

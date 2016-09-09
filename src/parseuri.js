@@ -43,7 +43,7 @@ export default function parseuri(str) {
 	const uri = {};
 	let i = 14;
 
-	while (i--) {
+	while (i--) { // eslint-disable-line
 		uri[parts[i]] = m[i] || '';
 	}
 

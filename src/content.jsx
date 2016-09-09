@@ -23,6 +23,6 @@ export default class Content extends Component {
 		const { source } = this.props;
 		const html = render(stripIndent(source));
 		const className = styles['markdown-body'];
-		return <span className={className} dangerouslySetInnerHTML={{ __html: html }} />;
+		return <span className={className} dangerouslySetInnerHTML={{ __html: html }} />; // eslint-disable-line
 	}
 }

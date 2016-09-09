@@ -191,7 +191,7 @@ function embedURL(url) {
 	if (!set) return undefined;
 
 	if (_.isArray(set)) {
-		for (let i = 0; i < set.length; i++) {
+		for (let i = 0; i < set.length; i += 1) {
 			const result = applyRule(set[i], url);
 			if (result) return result;
 		}

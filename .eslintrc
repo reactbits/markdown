@@ -17,6 +17,7 @@
     "id-length": 0,
     "indent": [2, "tab"],
     "no-console": 0,
+    "no-tabs": 0,
     "func-names": 0,
     "linebreak-style": 0,
     "import/no-extraneous-dependencies": 0,

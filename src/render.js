@@ -11,9 +11,9 @@ import embed from './embed';
 import tasklist from './tasklist';
 
 const md = new MarkdownIt({
-	html: true,
-	linkify: true,
-	typographer: true,
+  html: true,
+  linkify: true,
+  typographer: true,
 });
 
 configureLinkifier(md.linkify);
@@ -32,5 +32,5 @@ md.renderer.rules.emoji = (tokens, idx) => twemoji.parse(tokens[idx].content);
 
 // Renders given markdown text to HTML.
 export default function render(text) {
-	return md.render(text || '');
+  return md.render(text || '');
 }

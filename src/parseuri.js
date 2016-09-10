@@ -10,49 +10,49 @@ export const regex = /^(?:(?![^:@]+:[^:@\/]*@)(http|https|ws|wss):\/\/)?((?:(([^
 /* eslint-enable */
 
 const parts = [
-	'source',
-	'protocol',
-	'authority',
-	'userInfo',
-	'user',
-	'password',
-	'host',
-	'port',
-	'relative',
-	'path',
-	'directory',
-	'file',
-	'query',
-	'anchor',
+  'source',
+  'protocol',
+  'authority',
+  'userInfo',
+  'user',
+  'password',
+  'host',
+  'port',
+  'relative',
+  'path',
+  'directory',
+  'file',
+  'query',
+  'anchor',
 ];
 
 export default function parseuri(str) {
-	const src = str;
-	const b = str.indexOf('[');
-	const e = str.indexOf(']');
+  const src = str;
+  const b = str.indexOf('[');
+  const e = str.indexOf(']');
 
-	if (b !== -1 && e !== -1) {
-		str = str.substring(0, b) + str.substring(b, e).replace(/:/g, ';') + str.substring(e, str.length); // eslint-disable-line
-	}
+  if (b !== -1 && e !== -1) {
+    str = str.substring(0, b) + str.substring(b, e).replace(/:/g, ';') + str.substring(e, str.length); // eslint-disable-line
+  }
 
-	const m = regex.exec(str || '');
-	if (!m) {
-		return null;
-	}
+  const m = regex.exec(str || '');
+  if (!m) {
+    return null;
+  }
 
-	const uri = {};
-	let i = 14;
+  const uri = {};
+  let i = 14;
 
-	while (i--) { // eslint-disable-line
-		uri[parts[i]] = m[i] || '';
-	}
+  while (i--) { // eslint-disable-line
+    uri[parts[i]] = m[i] || '';
+  }
 
-	if (b !== -1 && e !== -1) {
-		uri.source = src;
-		uri.host = uri.host.substring(1, uri.host.length - 1).replace(/;/g, ':');
-		uri.authority = uri.authority.replace('[', '').replace(']', '').replace(/;/g, ':');
-		uri.ipv6uri = true;
-	}
+  if (b !== -1 && e !== -1) {
+    uri.source = src;
+    uri.host = uri.host.substring(1, uri.host.length - 1).replace(/;/g, ':');
+    uri.authority = uri.authority.replace('[', '').replace(']', '').replace(/;/g, ':');
+    uri.ipv6uri = true;
+  }
 
-	return uri;
+  return uri;
 }

@@ -14,89 +14,89 @@ import styles from './style.scss';
 // TODO sync scrollbars for editor and viewer
 
 export class MarkdownEditor extends Component {
-	static propTypes = {
-		value: PropTypes.string,
-		onSave: PropTypes.func,
-		onChange: PropTypes.func,
-	};
+  static propTypes = {
+    value: PropTypes.string,
+    onSave: PropTypes.func,
+    onChange: PropTypes.func,
+  };
 
-	static defaultProps = {
-		value: '',
-		onSave: _.noop,
-		onChange: _.noop,
-	};
+  static defaultProps = {
+    value: '',
+    onSave: _.noop,
+    onChange: _.noop,
+  };
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			mode: 'edit',
-			value: props.value || '',
-		};
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      mode: 'edit',
+      value: props.value || '',
+    };
+  }
 
-	componentWillReceiveProps(nextProps) {
-		this.setState({ value: nextProps.value });
-	}
+  componentWillReceiveProps(nextProps) {
+    this.setState({ value: nextProps.value });
+  }
 
-	renderAce() {
-		const { width, height } = this.props.style || {};
-		const onChange = value => {
-			(this.props.onChange || _.noop)(value);
-			this.setState({ value });
-		};
-		const aceProps = {
-			mode: 'markdown',
-			theme: 'github',
-			value: this.state.value,
-			onChange,
-			width: width || '100%',
-			height: height || '100%',
-		};
-		return <Ace {...aceProps} />;
-	}
+  renderAce() {
+    const { width, height } = this.props.style || {};
+    const onChange = value => {
+      (this.props.onChange || _.noop)(value);
+      this.setState({ value });
+    };
+    const aceProps = {
+      mode: 'markdown',
+      theme: 'github',
+      value: this.state.value,
+      onChange,
+      width: width || '100%',
+      height: height || '100%',
+    };
+    return <Ace {...aceProps} />;
+  }
 
-	renderNormalView() {
-		if (this.state.mode === 'edit') {
-			return	this.renderAce();
-		}
-		return (
-			<Markdown source={this.state.value} />
-		);
-	}
+  renderNormalView() {
+    if (this.state.mode === 'edit') {
+      return this.renderAce();
+    }
+    return (
+      <Markdown source={this.state.value} />
+    );
+  }
 
-	renderSplitView() {
-		return (
-			<SplitPane split="vertical">
-				{this.renderAce()}
-				<Markdown source={this.state.value} />
-			</SplitPane>
-		);
-	}
+  renderSplitView() {
+    return (
+      <SplitPane split="vertical">
+        {this.renderAce()}
+        <Markdown source={this.state.value} />
+      </SplitPane>
+    );
+  }
 
-	render() {
-		const { mode } = this.state;
-		const { style, splitView } = this.props;
-		const onAction = type => {
-			// TODO implement formatting actions
-			switch (type) {
-			case 'mode':
-				this.setState({ mode: mode === 'edit' ? 'preview' : 'edit' });
-				break;
-			case 'save':
-				(this.props.onSave || _.noop)(this.state.value);
-				break;
-			default:
-				console.log(`unhandled action ${type}`);
-				break;
-			}
-		};
-		return (
-			<div className={styles.markdown_editor} style={style}>
-				<Toolbar mode={mode} onAction={onAction} />
-				{splitView ? this.renderSplitView() : this.renderNormalView()}
-			</div>
-		);
-	}
+  render() {
+    const { mode } = this.state;
+    const { style, splitView } = this.props;
+    const onAction = type => {
+      // TODO implement formatting actions
+      switch (type) {
+        case 'mode':
+          this.setState({ mode: mode === 'edit' ? 'preview' : 'edit' });
+          break;
+        case 'save':
+          (this.props.onSave || _.noop)(this.state.value);
+          break;
+        default:
+          console.log(`unhandled action ${type}`);
+          break;
+      }
+    };
+    return (
+      <div className={styles.markdown_editor} style={style}>
+        <Toolbar mode={mode} onAction={onAction} />
+        {splitView ? this.renderSplitView() : this.renderNormalView()}
+      </div>
+    );
+  }
 }
 
 export default MarkdownEditor;

@@ -57,7 +57,7 @@
     "twemoji": "^2.2.0"
   },
   "devDependencies": {
-    "eslint": "^3.4.0",
+    "eslint": "^3.6.1",
     "react-bootstrap": "^0.30.3",
     "react-devpack": "^0.1.56",
     "react-sidebar": "^2.2.1"

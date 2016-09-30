@@ -44,7 +44,7 @@
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "prismjs-package": "^0.7.17",
+    "prismjs-package": "^0.7.18",
     "railroad-diagrams": "^1.0.0",
     "raphael": "^2.2.3",
     "react": "^15.3.2",

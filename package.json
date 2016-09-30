@@ -46,7 +46,7 @@
     "markdown-it-sup": "^1.0.0",
     "prismjs-package": "^0.7.18",
     "railroad-diagrams": "^1.0.0",
-    "raphael": "^2.2.3",
+    "raphael": "^2.2.4",
     "react": "^15.3.2",
     "react-ace": "^3.6.0",
     "react-diffview": "^0.1.35",

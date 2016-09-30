@@ -44,12 +44,12 @@
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "prismjs-package": "^0.7.17",
+    "prismjs-package": "^0.7.18",
     "railroad-diagrams": "^1.0.0",
     "raphael": "^2.2.3",
     "react": "^15.3.2",
     "react-ace": "^3.6.0",
-    "react-diffview": "^0.1.34",
+    "react-diffview": "^0.1.35",
     "react-dom": "^15.3.2",
     "react-split-pane": "^0.1.44",
     "react-tabs": "^0.8.0",
@@ -59,7 +59,7 @@
   "devDependencies": {
     "eslint": "^3.6.1",
     "react-bootstrap": "^0.30.3",
-    "react-devpack": "^0.1.56",
+    "react-devpack": "^0.1.59",
     "react-sidebar": "^2.2.1"
   }
 }

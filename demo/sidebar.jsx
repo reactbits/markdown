@@ -75,7 +75,7 @@ export default function AppSidebar(props) {
   const onSelect = i => props.onSelect(contentLinks[i], i);
   const content = (
     <Nav bsStyle="pills" stacked activeKey={props.activeKey} onSelect={onSelect}>
-    {menuItems()}
+      {menuItems()}
     </Nav>
   );
   return (

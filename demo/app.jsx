@@ -17,11 +17,11 @@ export default class App extends Component {
   }
 
   select(item, i) {
-    fetch(item.url).then(response => {
-      response.text().then(content => {
+    fetch(item.url)
+      .then(response => response.text())
+      .then((content) => {
         this.setState({ content, activeKey: i });
       });
-    });
   }
 
   renderContent() {

@@ -40,7 +40,7 @@ export class MarkdownEditor extends Component {
 
   renderAce() {
     const { width, height } = this.props.style || {};
-    const onChange = value => {
+    const onChange = (value) => {
       (this.props.onChange || _.noop)(value);
       this.setState({ value });
     };
@@ -76,7 +76,7 @@ export class MarkdownEditor extends Component {
   render() {
     const { mode } = this.state;
     const { style, splitView } = this.props;
-    const onAction = type => {
+    const onAction = (type) => {
       // TODO implement formatting actions
       switch (type) {
         case 'mode':

@@ -47,7 +47,7 @@
     "prismjs-package": "^0.7.19",
     "railroad-diagrams": "^1.0.0",
     "raphael": "^2.2.6",
-    "react": "^15.3.2",
+    "react": "^15.4.0",
     "react-ace": "^3.6.1",
     "react-diffview": "^0.1.36",
     "react-dom": "^15.4.0",

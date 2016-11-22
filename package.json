@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "eslint": "^3.8.1",
-    "react-bootstrap": "^0.30.6",
+    "react-bootstrap": "^0.30.7",
     "react-devpack": "^0.2.1",
     "react-sidebar": "^2.2.1"
   }

@@ -30,7 +30,7 @@ export default function render(elem) {
     elem.innerHTML = ''; // eslint-disable-line
     result.addTo(elem);
     $e.find('railroad-diagram').attr('class', styles['railroad-diagram']);
-  } catch (e) {
-    return;
+  } catch (err) {
+    console.log(err);
   }
 }

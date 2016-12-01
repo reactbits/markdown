@@ -73,9 +73,9 @@ function rules(host, set) { // eslint-disable-line
 const image = rule('', regex.imageExt, url => `<img src="${url}"/>`);
 
 // TODO support watch URLs
-rule('youtube.com', regex.youtube, url =>
+rule('youtube.com', regex.youtube, url => (
   iframe({ className: styles.youtube, src: url })
-);
+));
 
 rule('vimeo.com', regex.vimeo, (url, match) => {
   const src = `http://player.vimeo.com/video/${match[1]}`;

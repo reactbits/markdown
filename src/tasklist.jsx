@@ -2,7 +2,7 @@ import _ from 'lodash';
 import classNames from 'classnames';
 import styles from 'github-markdown-css/github-markdown.css';
 
-const taskItemRegExp = /^\s*\[(\s|x?)\]\s+/i;
+const taskItemRegExp = /^\s*\[(\s|x?)]\s+/i;
 
 function checkbox(checked) {
   const attrs = checked ? 'checked' : '';

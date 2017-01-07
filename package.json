@@ -35,7 +35,7 @@
     "hashtrie": "^1.0.0",
     "jquery": "^3.1.1",
     "js-sequence-diagrams": "git://github.com/sergeyt/js-sequence-diagrams.git#modularity",
-    "katex": "^0.6.0",
+    "katex": "^0.7.0",
     "linkify-it": "^2.0.2",
     "lodash": "^4.17.4",
     "markdown-it": "^8.2.2",
@@ -44,22 +44,22 @@
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "prismjs-package": "^0.7.22",
+    "prismjs-package": "^0.7.23",
     "railroad-diagrams": "^1.0.0",
     "raphael": "^2.2.7",
-    "react": "^15.4.1",
+    "react": "^15.4.2",
     "react-ace": "^4.1.1",
-    "react-diffview": "^0.1.39",
-    "react-dom": "^15.4.1",
+    "react-diffview": "^0.1.40",
+    "react-dom": "^15.4.2",
     "react-split-pane": "^0.1.57",
     "react-tabs": "^0.8.2",
     "strip-indent": "^2.0.0",
     "twemoji": "^2.2.0"
   },
   "devDependencies": {
-    "eslint": "^3.12.2",
+    "eslint": "^3.13.0",
     "react-bootstrap": "^0.30.7",
-    "react-devpack": "^0.2.6",
+    "react-devpack": "^0.2.13",
     "react-sidebar": "^2.2.1"
   }
 }

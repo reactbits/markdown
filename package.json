@@ -54,7 +54,7 @@
     "react-split-pane": "^0.1.57",
     "react-tabs": "^0.8.2",
     "strip-indent": "^2.0.0",
-    "twemoji": "^2.2.0"
+    "twemoji": "^2.2.3"
   },
   "devDependencies": {
     "eslint": "^3.14.0",

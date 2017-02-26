@@ -5,7 +5,7 @@ import flowchart from 'flowchart.js';
 import katex from 'katex';
 import railroad from './railroad';
 // import katexStyles from '../bower_components/KaTeX/dist/katex.min.css'; // eslint-disable-line
-import { EmbedJS } from 'embed-js/src/embed.js'; // eslint-disable-line
+// import EmbedJS from 'embed-js/src/js/main.js'; // eslint-disable-line
 // import embedStyles from 'embed-js/src/embed.css'; // eslint-disable-line
 
 function inject(element) {
@@ -37,10 +37,10 @@ function inject(element) {
     return;
   }
   if ($e.is('.embedjs')) {
-    const em = new window.EmbedJS({
-      element,
-    });
-    em.render();
+    // const em = new window.EmbedJS({
+    //   element,
+    // });
+    // em.render();
   }
 }
 

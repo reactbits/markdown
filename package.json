@@ -52,7 +52,7 @@
     "react-diffview": "^0.1.46",
     "react-dom": "^15.5.4",
     "react-split-pane": "^0.1.63",
-    "react-tabs": "^0.8.3",
+    "react-tabs": "^1.0.0",
     "strip-indent": "^2.0.0",
     "twemoji": "^2.2.5"
   },

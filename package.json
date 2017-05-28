@@ -48,7 +48,7 @@
     "railroad-diagrams": "^1.0.0",
     "raphael": "^2.2.7",
     "react": "^15.5.4",
-    "react-ace": "^4.2.1",
+    "react-ace": "^5.0.0",
     "react-diffview": "^0.1.46",
     "react-dom": "^15.5.4",
     "react-split-pane": "^0.1.63",
